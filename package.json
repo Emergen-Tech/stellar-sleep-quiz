@@ -1,0 +1,27 @@
+{
+  "name": "stellar-sleep-quiz-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@next/font": "13.1.6",
+    "@reduxjs/toolkit": "^1.9.2",
+    "next": "13.1.6",
+    "next-redux-wrapper": "^8.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.7.1",
+    "react-redux": "^8.0.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "next-transpile-modules": "^10.0.0",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.6"
+  }
+}
