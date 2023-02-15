@@ -1,5 +1,7 @@
-import Head from "next/head";
-import HomePage from "./home";
+// const { Head } = require("next/head");
+// const { HomePage } = require("./home/index.js");
+import HomePage from "./home/index.js";
+import Head from "next/head.js";
 
 export default function Home() {
   return (

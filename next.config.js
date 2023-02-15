@@ -2,9 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
 };
-const withTM = require("next-transpile-modules")(["@reduxjs/toolkit"]);
 
-module.exports = withTM({
+module.exports = {
+  appDir: true,
   images: {
     remotePatterns: [
       {
@@ -16,4 +16,4 @@ module.exports = withTM({
     ],
   },
   nextConfig,
-});
+};
