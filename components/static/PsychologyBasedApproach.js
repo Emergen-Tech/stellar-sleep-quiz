@@ -8,15 +8,15 @@ import { useSelector, useDispatch } from "react-redux/es/exports";
 import {
   moveToNextQuestion,
   moveTopreviousQuestion,
-  submitAnswer,
-  selectQuestion,
+  // submitAnswer,
+  // selectQuestion,
 } from "@/reducers/QuizSlice";
 import { useState, useEffect } from "react";
 
 export default function PsychologyBasedApproach() {
   const dispatch = useDispatch();
-  const { questions, currentQuestion } = useSelector((state) => state.quiz);
-  const current = useSelector(selectQuestion);
+  // const { questions, currentQuestion } = useSelector((state) => state.quiz);
+  // const current = useSelector(selectQuestion);
 
   function handlePreviousPage() {
     dispatch(moveTopreviousQuestion());

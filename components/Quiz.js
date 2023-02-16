@@ -14,6 +14,7 @@ import QualitySleepGraph from "./static/QualitySleepGraph";
 import PsychologyBasedApproach from "./static/PsychologyBasedApproach";
 // import Template from "./common/Template";
 import InsomniaSeverityIndex from "./dynamic/InsomniaSeverityIndex";
+import { useRouter } from "next/router";
 
 export default function Quiz() {
   // const [currentQuestion, setCurrentQuestion] = useState(0);

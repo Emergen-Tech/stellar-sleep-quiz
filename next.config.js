@@ -4,7 +4,19 @@ const nextConfig = {
 };
 
 module.exports = {
-  appDir: true,
+  experimental: {
+    appDir: true,
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.node = {
+        __dirname: true,
+        __filename: true,
+        global: true,
+      };
+    }
+    return config;
+  },
   images: {
     remotePatterns: [
       {
