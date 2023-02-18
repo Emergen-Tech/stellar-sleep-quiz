@@ -18,7 +18,7 @@ import { useRouter } from "next/router";
 
 export default function Quiz() {
   const dispatch = useDispatch();
-  const { questions, currentQuestion, multipleChoiceResponses } = useSelector(
+  const { questions, currentQuestion } = useSelector(
     (state) => state.quiz
   );
 

@@ -1,76 +1,69 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import {
-  moveToNextQuestion,
-  moveTopreviousQuestion,
-  submitMultipleChoiceAnswer,
-  selectQuestion,
-  setAnswer,
-} from "@/reducers/QuizSlice";
+import { moveToNextQuestion, setAnswer } from '@/reducers/QuizSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function CheckBoxQuiz() {
-  const [selectedOptions, setSelectedOptions] = useState([]);
+  // const [selectedOptions, setSelectedOptions] = useState([]);
 
   const current = useSelector(
     (state) => state.quiz.questions[state.quiz.currentQuestion]
   );
   const question = current.question;
   const choices = current.choices;
+  const currentAnswerVars = current.output.answerVar;
 
   const handleOptionSelect = (option) => {
-    if (selectedOptions.includes(option)) {
-      setSelectedOptions(selectedOptions.filter((o) => o !== option));
+    if (currentAnswerVars.includes(option)) {
+      dispatch(setAnswer(currentAnswerVars.filter((o) => o !== option)));
+      // setSelectedOptions(selectedOptions.filter((o) => o !== option));
     } else {
-      setSelectedOptions([...selectedOptions, option]);
+      // setSelectedOptions([...selectedOptions, option]);
+      dispatch(setAnswer([...currentAnswerVars, option]));
     }
   };
 
-  useEffect(() => {
-    if (output !== "") {
-      setSelectedOptions(output);
-    }
-  });
+  // useEffect(() => {
+  //   if (output !== '') {
+  //     setSelectedOptions(output);
+  //   }
+  // });
 
   const dispatch = useDispatch();
 
   function handleSubmitResponse() {
-    dispatch(setAnswer(selectedOptions));
     // setSelectedOption("");
-    if (current.output.answerVar.length > 0) {
+    if (currentAnswerVars.length > 0) {
       dispatch(moveToNextQuestion());
     }
   }
-  const currentAnswerVar = current.output.answerVar
-    ? current.output.answerVar[0]
-    : null;
+  console.log(currentAnswerVars);
 
   return (
     <>
-      <div className="w-[350px]">
-        <h1 className="text-[25px] text-[#ffffff] py-4">{question}</h1>
-        <div className="grid gap-2">
-          {Object.entries(choices).map((option) => (
+      <div className='w-[350px]'>
+        <h1 className='text-[25px] text-[#ffffff] py-4'>{question}</h1>
+        <div className='grid gap-2'>
+          {Object.entries(choices).map((entry) => (
             <label
-              key={option[0]}
+              key={entry[0]}
               className={`w-full px-5 mb-2 flex items-center hover:scale-[1.02] ${
-                option[0] === currentAnswerVar ? "bg-[#769E7D]" : "bg-[#37533C]"
-              } transition-all h-[60px] rounded-[10px] text-[20px] text-[#ffffff]`}
-            >
+                currentAnswerVars.includes(entry[0])
+                  ? 'bg-[#769E7D]'
+                  : 'bg-[#37533C]'
+              } transition-all h-[60px] rounded-[10px] text-[20px] text-[#ffffff]`}>
               <input
-                type="checkbox"
-                value={option}
-                className="mr-2 w-4 h-4"
-                onChange={handleOptionSelect(option[0])}
+                type='checkbox'
+                value={true}
+                className='mr-2 w-4 h-4'
+                onChange={(e) => handleOptionSelect(entry[0])}
               />
-              {option[1]}
+              {entry[1]}
             </label>
           ))}
         </div>
-        <div className="w-[350px]">
+        <div className='w-[350px]'>
           <button
             onClick={() => handleSubmitResponse()}
-            className="bg-[#DE8F6E] w-full h-[70px] text-white text-[20px] text-center rounded-[10px] my-[20px]"
-          >
+            className='bg-[#DE8F6E] w-full h-[70px] text-white text-[20px] text-center rounded-[10px] my-[20px]'>
             Next
           </button>
         </div>
