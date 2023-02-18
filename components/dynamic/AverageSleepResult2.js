@@ -12,7 +12,7 @@ import { useState, useEffect } from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 // import logo from "@/images/logo.png";
 
-export default function AverageSleepResult() {
+export default function AverageSleepResult2() {
   const questions = useSelector((state) => state.quiz.questions);
   const dispatch = useDispatch();
 
@@ -22,43 +22,42 @@ export default function AverageSleepResult() {
   const ageObject = questions.find((i) => i.output.questionVar === "age");
   const age = ageObject.output.answerVar[0];
 
-  const how_long_to_fall_asleepObject = questions.find(
-    (i) => i.output.questionVar === "how_long_to_fall_asleep"
+  const time_asleepObject = questions.find(
+    (i) => i.output.questionVar === "time_asleep"
   );
-  const how_long_to_fall_asleep =
-    how_long_to_fall_asleepObject.output.answerVar[0];
+  const time_asleep = time_asleepObject.output.answerVar[0];
 
-  const latency_from_age_men = {
-    "20s": "17.1 min",
-    "30s": "17.3 min",
-    "40s": "12.1 min",
-    "50s": "11.5 min",
-    "60s": "12.1 min",
-    "+70": "12.3 min",
+  const sleep_duration_from_age_men = {
+    "20s": "7.26 hr",
+    "30s": "6.97 hr",
+    "40s": "6.83 hr",
+    "50s": "6.81 hr",
+    "60s": "7.24 hr",
+    "70s": "7.45 hr",
   };
-  const latency_from_age_women = {
-    "20s": "14.7 min",
-    "30s": "13.7 min",
-    "40s": "12.2 min",
-    "50s": "12.7 min",
-    "60s": "13.6 min",
-    "+70": "17.8 min",
+  const sleep_duration_from_age_women = {
+    "20s": "7.17 hr",
+    "30s": "6.73 hr",
+    "40s": "7.08 hr",
+    "50s": "7.10 hr",
+    "60s": "7.44 hr",
+    "70s": "7.46 hr",
   };
-  const latency_from_age_other = {
-    "20s": "15.9 min",
-    "30s": "15.5 min",
-    "40s": "12.2 min",
-    "50s": "12.1 min",
-    "60s": "12.85 min",
-    "+70": "15.05 min",
+  const sleep_duration_from_age_other = {
+    "20s": "7.22 hr",
+    "30s": "6.85 hr",
+    "40s": "6.96 hr",
+    "50s": "6.96 hr",
+    "60s": "7.34 hr",
+    "70s": "7.46 hr",
   };
 
   const averageSleepResult =
     sex === "male"
-      ? latency_from_age_men[age]
+      ? sleep_duration_from_age_men[age]
       : sex == "female"
-      ? latency_from_age_women[age]
-      : latency_from_age_other[age];
+      ? sleep_duration_from_age_women[age]
+      : sleep_duration_from_age_other[age];
 
   // console.log(age, "age");
   // console.log(sex, "sex");
@@ -104,32 +103,30 @@ export default function AverageSleepResult() {
               <div className="text-[50px] font-bold text-center text-[#7B91DD]">
                 ⏱ {averageSleepResult}
               </div>
-              <div className="text-[16px] text-[#ffffff]">
-                to fall asleep...
-              </div>
+              <div className="text-[16px] text-[#ffffff]">per night...</div>
             </div>
 
             <div className="grid gap-2">
               <div className="text-[20px] text-[#ffffff]">
-                You currently take
+                You currently sleep
               </div>
               <div className="text-[45px] font-bold text-center text-[#7B91DD]">
-                ⏱ {how_long_to_fall_asleep} min
+                ⏱ {time_asleep} hr
               </div>
               <div className="text-[16px] text-[#ffffff]">
-                to fall asleep...
+                on a typical night...
               </div>
             </div>
 
             <div className="grid gap-2">
               <div className="text-[20px] text-[#ffffff]">
-                The average user who completes our program takes
+                The average user who completes our program sleeps
               </div>
               <div className="text-[45px] font-bold text-center text-[#6FCF97]">
-                ⏳ 53 min
+                ⏳ 74 min
               </div>
               <div className="text-[16px] text-[#ffffff]">
-                less time to fall asleep.
+                more than before, and spends 52% less time awake at night.
               </div>
             </div>
           </div>

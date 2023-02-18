@@ -1,5 +1,5 @@
-import { moveToNextQuestion, setAnswer } from '@/reducers/QuizSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { moveToNextQuestion, setAnswer } from "@/reducers/QuizSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function CheckBoxQuiz() {
   // const [selectedOptions, setSelectedOptions] = useState([]);
@@ -39,31 +39,33 @@ export default function CheckBoxQuiz() {
 
   return (
     <>
-      <div className='w-[350px]'>
-        <h1 className='text-[25px] text-[#ffffff] py-4'>{question}</h1>
-        <div className='grid gap-2'>
+      <div className="w-[350px]">
+        <h1 className="text-[25px] text-[#ffffff] py-4">{question}</h1>
+        <div className="grid gap-2">
           {Object.entries(choices).map((entry) => (
             <label
               key={entry[0]}
               className={`w-full px-5 mb-2 flex items-center hover:scale-[1.02] ${
                 currentAnswerVars.includes(entry[0])
-                  ? 'bg-[#769E7D]'
-                  : 'bg-[#37533C]'
-              } transition-all h-[60px] rounded-[10px] text-[20px] text-[#ffffff]`}>
+                  ? "bg-[#769E7D]"
+                  : "bg-[#37533C]"
+              } transition-all h-[60px] rounded-[10px] text-[20px] text-[#ffffff]`}
+            >
               <input
-                type='checkbox'
-                value={true}
-                className='mr-2 w-4 h-4'
+                type="checkbox"
+                checked={currentAnswerVars.includes(entry[0]) ? true : false}
+                className="mr-2 w-4 h-4"
                 onChange={(e) => handleOptionSelect(entry[0])}
               />
               {entry[1]}
             </label>
           ))}
         </div>
-        <div className='w-[350px]'>
+        <div className="w-[350px]">
           <button
             onClick={() => handleSubmitResponse()}
-            className='bg-[#DE8F6E] w-full h-[70px] text-white text-[20px] text-center rounded-[10px] my-[20px]'>
+            className="bg-[#DE8F6E] w-full h-[70px] text-white text-[20px] text-center rounded-[10px] my-[20px]"
+          >
             Next
           </button>
         </div>

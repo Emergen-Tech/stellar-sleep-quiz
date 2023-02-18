@@ -5,8 +5,8 @@ export default function QuizPage() {
   return (
     <>
       <div>
-        {/* <Quiz /> */}
-        <SleepingPillsAndStellarSleep />
+        <Quiz />
+        {/* <SleepingPillsAndStellarSleep /> */}
       </div>
     </>
   );

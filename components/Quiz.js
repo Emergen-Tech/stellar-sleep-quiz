@@ -15,12 +15,15 @@ import PsychologyBasedApproach from "./static/PsychologyBasedApproach";
 // import Template from "./common/Template";
 import InsomniaSeverityIndex from "./dynamic/InsomniaSeverityIndex";
 import { useRouter } from "next/router";
+import InputFieldQuiz from "./quizTypes/InputFieldQuiz";
+import AverageSleepResult from "./dynamic/AverageSleepResult";
+import AverageSleepResult2 from "./dynamic/AverageSleepResult2";
+import SuccessRate from "./dynamic/SuccessRate";
+import PersonalizedApproachSleep from "./static/PersonalizedApproachSleep";
 
 export default function Quiz() {
   const dispatch = useDispatch();
-  const { questions, currentQuestion } = useSelector(
-    (state) => state.quiz
-  );
+  const { questions, currentQuestion } = useSelector((state) => state.quiz);
 
   const current = useSelector(
     (state) => state.quiz.questions[state.quiz.currentQuestion]
@@ -65,14 +68,9 @@ export default function Quiz() {
             case "multipleChoice":
               return <MultipleChoiceQuiz />;
             case "CheckBox":
-              return (
-                <CheckBoxQuiz
-                  question={current.question}
-                  choices={current.choices}
-                  output={current.output.answerVar}
-                  id={current.id}
-                />
-              );
+              return <CheckBoxQuiz />;
+            case "InputField":
+              return <InputFieldQuiz />;
             case "static":
               if (current.typeStatic === "behavioral therapy static page") {
                 return <BehavioraltherapyInfo />;
@@ -80,10 +78,18 @@ export default function Quiz() {
                 return <QualitySleepGraph />;
               } else if (current.typeStatic === "psychology-based approach") {
                 return <PsychologyBasedApproach />;
+              } else if (current.typeStatic === "personalized approach sleep") {
+                return <PersonalizedApproachSleep />;
               }
             case "dynamic":
               if (current.typeDynamic === "ISI") {
                 return <InsomniaSeverityIndex />;
+              } else if (current.typeDynamic === "Average Sleep") {
+                return <AverageSleepResult />;
+              } else if (current.typeDynamic === "Average Sleep 2") {
+                return <AverageSleepResult2 />;
+              } else if (current.typeDynamic === "success rate") {
+                return <SuccessRate />;
               }
             default:
               return null;
