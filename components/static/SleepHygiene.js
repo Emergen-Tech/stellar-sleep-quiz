@@ -14,7 +14,7 @@ import {
 } from "@/reducers/QuizSlice";
 import { useState, useEffect } from "react";
 
-export default function PersonalizedApproachSleep() {
+export default function SleepHygiene() {
   const dispatch = useDispatch();
   // const { questions, currentQuestion } = useSelector((state) => state.quiz);
   // const current = useSelector(selectQuestion);
@@ -53,27 +53,32 @@ export default function PersonalizedApproachSleep() {
           </div>
           <div className="grid gap-5 justify-center">
             <div className="text-[20px] text-[#ffffff] font-bold">
-              Stellar Sleep uses a personalized, science-backed approach to
-              improve your sleep.
+              You’re not alone when it comes to sleep hygiene.
             </div>
             <div className="grid gap-4">
               <div className="text-[20px] text-[#ffffff]">
-                We partnered with top sleep experts and have already helped over
-                10,000 users fall asleep faster, spend more time asleep, and
-                wake up less during the night.
-              </div>
-              <div>
-                <Image
-                  src={personalizedApproachSleepImage}
-                  alt="personalized Approach Sleep Image"
-                  width="150"
-                  height="120"
-                  className="w-full"
-                />
+                For some people, techniques like cutting coffee make little
+                difference. If you think back to a time when you were a good
+                sleeper, you probably never worried about things like that.
               </div>
               <div className="text-[20px] text-[#ffffff]">
-                Our clinical research partners include Harvard Medical School
-                and Brigham and Women's Hospital.
+                The goal of Stellar Sleep is to move beyond sleep hygiene by
+                reprogramming how your mind thinks about sleep.
+              </div>
+              <div className="flex gap-3 p-2">
+                <div className="w-[140px]">
+                  <Image
+                    src={aasm}
+                    alt="aasm"
+                    width={200}
+                    height={200}
+                    className="w-[140px] object-contain"
+                  />
+                </div>
+                <div className="text-[16px] text-[#ffffff] w-[190px] italic">
+                  “Sleep hygiene...does not constitute an effective stand-alone
+                  therapy”
+                </div>
               </div>
             </div>
           </div>
