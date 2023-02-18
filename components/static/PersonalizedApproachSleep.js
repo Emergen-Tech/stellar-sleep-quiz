@@ -50,31 +50,13 @@ export default function PsychologyBasedApproach() {
               />
             </div>
           </div>
-          <div className="flex justify-center">
-            <Image
-              src={locationSVG}
-              alt="location point"
-              width={35}
-              height={25}
-              className="w-[30px] flex justify-center items-center"
-            />
-          </div>
-          <div className="text-[20px] text-[#ffffff]">
-            <div>
-              Sleep is personal, and shouldn’t be a one-size-fits-all approach.
-            </div>
-            <br />
-            <div>
-              A psychology-based approach to improving your sleep is unique and
-              isn’t for everyone.
-            </div>
-            <br />
-            <div>
-              Tell us about yourself in the next few questions so we can
-              determine if Stellar Sleep is the right program for you at this
-              time.
+          <div className="grid justify-center">
+            <div className="text-[20px] text-[#ffffff] font-bold">
+              Stellar Sleep uses a personalized, science-backed approach to
+              improve your sleep.
             </div>
           </div>
+
           <div className="w-full h-[100px]">
             <button
               onClick={() => handleNextPage()}

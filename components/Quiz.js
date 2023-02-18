@@ -17,30 +17,24 @@ import InsomniaSeverityIndex from "./dynamic/InsomniaSeverityIndex";
 import { useRouter } from "next/router";
 
 export default function Quiz() {
-  // const [currentQuestion, setCurrentQuestion] = useState(0);
-  // const [answers, setAnswers] = useState([]);
-  // const [selectedOption, setSelectedOption] = useState(null);
-  // const [showInfo, setShowInfo] = useState(false);
-  // const current = questions[currentQuestion];
-
   const dispatch = useDispatch();
   const { questions, currentQuestion, multipleChoiceResponses } = useSelector(
     (state) => state.quiz
   );
+
   const current = useSelector(
     (state) => state.quiz.questions[state.quiz.currentQuestion]
   );
+
+  // const currentAnswer = useSelector(
+  //   (state) => state.quiz.questions[state.quiz.currentQuestion].output.answerVar
+  // );
 
   function handlePreviousPage() {
     dispatch(moveTopreviousQuestion());
   }
 
-  // function handleNextPage() {
-  //   dispatch(moveToNextQuestion());
-  // }
-  // console.log(current, "this is current question");
-  // console.log(responses, "Answers array");
-  console.log(multipleChoiceResponses, "mcqs");
+  // console.log(multipleChoiceResponses, "mcqs");
 
   return (
     <div className="bg-transparent p-4 w-[400px]">
@@ -69,18 +63,13 @@ export default function Quiz() {
         if (current)
           switch (current.inputType) {
             case "multipleChoice":
-              return (
-                <MultipleChoiceQuiz
-                  question={current.question}
-                  choices={current.choices}
-                  id={current.id}
-                />
-              );
+              return <MultipleChoiceQuiz />;
             case "CheckBox":
               return (
                 <CheckBoxQuiz
                   question={current.question}
                   choices={current.choices}
+                  output={current.output.answerVar}
                   id={current.id}
                 />
               );

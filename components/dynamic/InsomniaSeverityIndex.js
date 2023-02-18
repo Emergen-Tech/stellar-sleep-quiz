@@ -14,19 +14,26 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 
 export default function InsomniaSeverityIndex() {
   const { multipleChoiceResponses } = useSelector((state) => state.quiz);
-
+  const [result, setResult] = useState();
+  const [ISI, setISI] = useState(0);
+  const [ISI_Index, setISI_Index] = useState(0);
   const val = [4, 5, 6, 7, 8, 9, 10];
-  let temp2 = 0;
-  let result = val.map((i) => {
-    let temp = multipleChoiceResponses[i];
-    let temp1 = temp[2];
-    temp2 = temp2 + temp1;
-    if (i === 10) {
-      return temp2;
-    }
+
+  useEffect(() => {
+    setResult(
+      multipleChoiceResponses.map((i) => {
+        let temp = multipleChoiceResponses[val];
+        console.log(temp, "temp");
+        setISI_Index(temp[2]);
+        setISI(ISI + ISI_Index);
+        if (i === 10) {
+          return ISI;
+        }
+      })
+    );
   });
 
-  console.log(multipleChoiceResponses, "mcqs in isi");
+  // console.log(multipleChoiceResponses, "mcqs in isi");
 
   const dispatch = useDispatch();
 
