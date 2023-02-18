@@ -2,7 +2,7 @@ import Image from "next/image";
 import QualitySleepGraphImage from "@/images/quality_sleep_graph.png";
 import logo from "@/images/logo.png";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import { useSelector, useDispatch } from "react-redux/es/exports";
+import { useSelector, useDispatch } from "react-redux";
 import {
   moveToNextQuestion,
   moveTopreviousQuestion,

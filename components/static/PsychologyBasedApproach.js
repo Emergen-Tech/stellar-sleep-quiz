@@ -4,7 +4,7 @@ import aasm from "@/images/aasm.png";
 import acp from "@/images/acp.png";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import locationSVG from "@/images/locationSVG.svg";
-import { useSelector, useDispatch } from "react-redux/es/exports";
+import { useSelector, useDispatch } from "react-redux";
 import {
   moveToNextQuestion,
   moveTopreviousQuestion,

@@ -3,7 +3,7 @@ import Image from "next/image";
 import aasm from "@/images/aasm.png";
 import acp from "@/images/acp.png";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import { useSelector, useDispatch } from "react-redux/es/exports";
+import { useSelector, useDispatch } from "react-redux";
 import {
   moveToNextQuestion,
   moveTopreviousQuestion,

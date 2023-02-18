@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import ProgressBar from "./ProgressBar";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import { useSelector, useDispatch } from "react-redux/es/exports";
+import { useSelector, useDispatch } from "react-redux";
 import {
   moveToNextQuestion,
   moveTopreviousQuestion,
@@ -44,9 +44,9 @@ export default function Quiz() {
 
   return (
     <div className="bg-transparent p-4 w-[400px]">
-      {current.inputType === "static" ? (
+      {current?.inputType === "static" ? (
         ""
-      ) : current.inputType === "dynamic" ? (
+      ) : current?.inputType === "dynamic" ? (
         ""
       ) : (
         <div className="flex gap-8 pr-16 justify-center py-[20px]">
@@ -66,38 +66,39 @@ export default function Quiz() {
       )}
 
       {(() => {
-        switch (current.inputType) {
-          case "multipleChoice":
-            return (
-              <MultipleChoiceQuiz
-                question={current.question}
-                choices={current.choices}
-                id={current.id}
-              />
-            );
-          case "CheckBox":
-            return (
-              <CheckBoxQuiz
-                question={current.question}
-                choices={current.choices}
-                id={current.id}
-              />
-            );
-          case "static":
-            if (current.typeStatic === "behavioral therapy static page") {
-              return <BehavioraltherapyInfo />;
-            } else if (current.typeStatic === "Quality sleep") {
-              return <QualitySleepGraph />;
-            } else if (current.typeStatic === "psychology-based approach") {
-              return <PsychologyBasedApproach />;
-            }
-          case "dynamic":
-            if (current.typeDynamic === "ISI") {
-              return <InsomniaSeverityIndex />;
-            }
-          default:
-            return null;
-        }
+        if (current)
+          switch (current.inputType) {
+            case "multipleChoice":
+              return (
+                <MultipleChoiceQuiz
+                  question={current.question}
+                  choices={current.choices}
+                  id={current.id}
+                />
+              );
+            case "CheckBox":
+              return (
+                <CheckBoxQuiz
+                  question={current.question}
+                  choices={current.choices}
+                  id={current.id}
+                />
+              );
+            case "static":
+              if (current.typeStatic === "behavioral therapy static page") {
+                return <BehavioraltherapyInfo />;
+              } else if (current.typeStatic === "Quality sleep") {
+                return <QualitySleepGraph />;
+              } else if (current.typeStatic === "psychology-based approach") {
+                return <PsychologyBasedApproach />;
+              }
+            case "dynamic":
+              if (current.typeDynamic === "ISI") {
+                return <InsomniaSeverityIndex />;
+              }
+            default:
+              return null;
+          }
       })()}
       {/* {current.inputType !== ("static" || "dynamic") && (
         <div className="w-[350px]">

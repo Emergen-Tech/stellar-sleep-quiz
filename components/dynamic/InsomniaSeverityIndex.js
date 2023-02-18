@@ -1,7 +1,7 @@
 import logo from "@/images/logo.png";
 import Image from "next/image";
 // import { AiOutlineArrowLeft } from "react-icons/ai";
-import { useSelector, useDispatch } from "react-redux/es/exports";
+import { useSelector, useDispatch } from "react-redux";
 import {
   moveToNextQuestion,
   moveTopreviousQuestion,

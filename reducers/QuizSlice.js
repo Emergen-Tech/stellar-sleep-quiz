@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-export const getQuestions = createAsyncThunk("quiz/getQuestions", async () => {
-  const questions = [
+const initialState = {
+  questions: [
     {
       id: 1,
       question: "What is your sleep goal?",
@@ -172,12 +172,7 @@ export const getQuestions = createAsyncThunk("quiz/getQuestions", async () => {
       question: "",
       choices: [],
     },
-  ];
-  return questions;
-});
-
-const initialState = {
-  questions: [],
+  ],
   currentQuestion: 0,
   multipleChoiceResponses: [],
   checkboxResponses: [],
@@ -187,18 +182,6 @@ const initialState = {
 export const quizSlice = createSlice({
   name: "quiz",
   initialState,
-  extraReducers: {
-    [getQuestions.pending]: (state, action) => {
-      state.loading = true;
-    },
-    [getQuestions.fulfilled]: (state, action) => {
-      state.loading = false;
-      state.questions = action.payload;
-    },
-    [getQuestions.rejected]: (state, action) => {
-      state.loading = false;
-    },
-  },
   reducers: {
     selectAnswer: (state, action) => {
       state.responses[state.currentQuestion] = action.payload;
