@@ -69,7 +69,7 @@ export default function SleepHygiene() {
                     className="w-[140px] object-cover"
                   />
                 </div>
-                <div className="text-[13px] text-[#ffffff] italic">
+                <div className="text-[13px] text-[#ffffff] w-[160px] italic">
                   “Sleep hygiene...does not constitute an effective stand-alone
                   therapy”
                 </div>

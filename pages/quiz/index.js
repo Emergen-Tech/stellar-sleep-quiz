@@ -1,6 +1,4 @@
-import TrialPricing from "@/components/Pricing/TrialPricing";
 import Quiz from "@/components/Quiz";
-import StellarGif from "@/components/StellarGif";
 import { restoreFromLocalStorage } from "@/reducers/QuizSlice";
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -32,9 +30,7 @@ export default function QuizPage() {
   return (
     <>
       <div>
-        {/* <Quiz /> */}
-        {/* <StellarGif /> */}
-        <TrialPricing />
+        <Quiz />
       </div>
     </>
   );
