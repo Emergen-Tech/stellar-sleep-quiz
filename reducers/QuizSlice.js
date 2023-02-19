@@ -11,7 +11,7 @@ const sleep_pills = 'prescription_sleeping_pills';
 
 const initialState = {
   questions: questions,
-  currentQuestion: 29,
+  currentQuestion: 0,
   utm_term: null,
   gclid: null,
   promo: null,
@@ -21,15 +21,11 @@ export const quizSlice = createSlice({
   name: 'quiz',
   initialState,
   reducers: {
+    restoreFromLocalStorage(state, action) {
+      return { ...action.payload };
+    },
     setAnswer(state, action) {
-      // const questionIndex = state.questions.findIndex(
-      //   (question) =>
-      //     question.output.questionVar ===
-      //     state.questions[state.currentQuestion].output.questionVar
-      // );
-      // if (questionIndex !== -1) {
       state.questions[state.currentQuestion].output.answerVar = action.payload;
-      // }
     },
     redirectQuestion: (state, action) => {
       while (true) {
@@ -79,6 +75,7 @@ export const quizSlice = createSlice({
 });
 
 export const {
+  restoreFromLocalStorage,
   moveToNextQuestion,
   moveTopreviousQuestion,
   resetQuiz,

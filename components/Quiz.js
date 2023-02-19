@@ -96,23 +96,9 @@ export default function Quiz() {
                 case 'personalized approach sleep':
                   return <PersonalizedApproachSleep />;
                 case 'sleep hygiene':
-                  // if (
-                  //   sleep_improvement_strategies_attempted.some(
-                  //     (optionIncluded) => sleep_hygiene.includes(optionIncluded)
-                  //   )
-                  // ) {
                   return <SleepHygiene />;
-                // } else {
-                //   handleNextPage();
-                // }
                 case 'sleeping pills':
-                  // if (
-                  //   sleep_improvement_strategies_attempted.includes(sleep_pills)
-                  // ) {
                   return <SleepingPillsAndStellarSleep />;
-                // } else {
-                //   handleNextPage();
-                // }
                 case 'analyze':
                   return <AnalyzingPage />;
                 default:
