@@ -51,7 +51,7 @@ export default function SleepHygiene() {
               />
             </div>
           </div>
-          <div className="grid gap-5 justify-center">
+          <div className="grid gap-5 justify-center px-3">
             <div className="text-[20px] text-[#ffffff] font-bold">
               You’re not alone when it comes to sleep hygiene.
             </div>
@@ -65,17 +65,17 @@ export default function SleepHygiene() {
                 The goal of Stellar Sleep is to move beyond sleep hygiene by
                 reprogramming how your mind thinks about sleep.
               </div>
-              <div className="flex gap-3 p-2">
+              <div className="flex gap-3 w-[100%]">
                 <div className="w-[140px]">
                   <Image
                     src={aasm}
                     alt="aasm"
                     width={200}
                     height={200}
-                    className="w-[140px] object-contain"
+                    className="w-[70%] object-cover"
                   />
                 </div>
-                <div className="text-[16px] text-[#ffffff] w-[190px] italic">
+                <div className="text-[16px] text-[#ffffff] w-[40%] italic">
                   “Sleep hygiene...does not constitute an effective stand-alone
                   therapy”
                 </div>

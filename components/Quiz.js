@@ -20,6 +20,9 @@ import AverageSleepResult from "./dynamic/AverageSleepResult";
 import AverageSleepResult2 from "./dynamic/AverageSleepResult2";
 import SuccessRate from "./dynamic/SuccessRate";
 import PersonalizedApproachSleep from "./static/PersonalizedApproachSleep";
+import SleepingPillsAndStellarSleep from "./static/SleepingPillsAndStellarSleepResearch";
+import SleepHygiene from "./static/SleepHygiene";
+import AnalyzingPage from "./static/AnalyzingPage";
 
 export default function Quiz() {
   const dispatch = useDispatch();
@@ -38,6 +41,24 @@ export default function Quiz() {
   }
 
   // console.log(multipleChoiceResponses, "mcqs");
+
+  // condition for sleep hygiene and sleep pills screens
+  const sleep_hygiene = [
+    "meditation",
+    "melatonin",
+    "cutting_coffee_in_the_afternoon",
+    "reducing_screen_time_at_night",
+  ];
+  const sleep_pills = "prescription_sleeping_pills";
+
+  const sleep_improvement_strategies_attempted_Object = questions.find(
+    (i) => i.output.questionVar === "sleep_improvement_strategies_attempted"
+  );
+
+  const sleep_improvement_strategies_attempted =
+    sleep_improvement_strategies_attempted_Object.output.answerVar;
+
+  console.log(sleep_improvement_strategies_attempted);
 
   return (
     <div className="bg-transparent p-4 w-[400px]">
@@ -80,6 +101,38 @@ export default function Quiz() {
                 return <PsychologyBasedApproach />;
               } else if (current.typeStatic === "personalized approach sleep") {
                 return <PersonalizedApproachSleep />;
+              } else if (
+                current.typeStatic ===
+                "sleep hygiene or sleep pills and stellar sleep research"
+              ) {
+                if (
+                  sleep_improvement_strategies_attempted.length === 1 &&
+                  sleep_improvement_strategies_attempted[0] === sleep_pills
+                ) {
+                  return <SleepingPillsAndStellarSleep />;
+                } else if (
+                  sleep_improvement_strategies_attempted.some(
+                    (optionIncluded) => sleep_hygiene.includes(optionIncluded)
+                  )
+                ) {
+                  return <SleepHygiene />;
+                } else if (
+                  sleep_improvement_strategies_attempted[0] ===
+                  "none_of_the_above"
+                ) {
+                  return <AnalyzingPage />;
+                }
+                // sleep_improvement_strategies_attempted.length === 1 &&
+                // sleep_improvement_strategies_attempted[0] === sleep_pills ? (
+                //   <SleepingPillsAndStellarSleep />
+                // ) : sleep_improvement_strategies_attempted.some(
+                //     (optionIncluded) => sleep_hygiene.includes(optionIncluded)
+                //   ) ? (
+                //   <SleepHygiene />
+                // ) : (
+                //   sleep_improvement_strategies_attempted[0] ===
+                //     "none_of_the_above" && <AnalyzingPage />
+                // );
               }
             case "dynamic":
               if (current.typeDynamic === "ISI") {

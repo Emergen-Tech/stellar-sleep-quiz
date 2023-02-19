@@ -15,7 +15,7 @@ import {
 import { useState, useEffect } from "react";
 import JAMA from "@/images/JAMA.png";
 
-export default function SleepingPillsAndStellarSleep() {
+export default function AnalyzingPage() {
   const dispatch = useDispatch();
   // const { questions, currentQuestion } = useSelector((state) => state.quiz);
   // const current = useSelector(selectQuestion);

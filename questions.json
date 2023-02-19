@@ -437,5 +437,15 @@
       "questionVar":"sleep_improvement_strategies_attempted", 
       "answerVar":[]
     }
+  },
+  {
+    "id": 31,
+    "inputType": "static",
+    "typeDynamic": "",
+    "question": "",
+    "choices": {},
+    "unit": "",
+    "typeStatic": "sleep hygiene or sleep pills and stellar sleep research",
+    "output": {}
   }
 ]
