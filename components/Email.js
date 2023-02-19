@@ -1,16 +1,13 @@
 import logo from "@/images/logo.png";
-// import personalizedApproachSleepImage from "@/images/personalizedApproachSleep.png";
 import Image from "next/image";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-// import locationSVG from "@/images/locationSVG.svg";
-import JAMA from "@/images/JAMA.png";
+import { useSelector, useDispatch } from "react-redux";
 import {
   moveToNextQuestion,
   moveTopreviousQuestion,
 } from "@/reducers/QuizSlice";
-import { useDispatch } from "react-redux";
 
-export default function AnalyzingPage() {
+export default function Email() {
   const dispatch = useDispatch();
   // const { questions, currentQuestion } = useSelector((state) => state.quiz);
   // const current = useSelector(selectQuestion);
@@ -26,7 +23,7 @@ export default function AnalyzingPage() {
   return (
     <>
       <div className="w-[400px] max-w-[100%] min-h-[100vh] max-h-auto grid justify-center p-5 px-7 bg-[#37533C] overflow-y-auto">
-        <div className="w-full grid gap-4">
+        <div className="w-full grid gap-1">
           <div className="flex ">
             <div className="w-[25%]">
               <button
@@ -47,14 +44,29 @@ export default function AnalyzingPage() {
               />
             </div>
           </div>
-          <div className="grid gap-5 justify-center">
-            <div className="grid gap-4">
-              <div className="text-[20px] text-[#ffffff] font-bold">
-                Sit tight! We’re building your perfect plan based on data points
-                from successful Stellar Sleep users.
+          <div className="grid gap-2 justify-center px-3">
+            <div className="text-[20px] text-[#ffffff] font-bold">
+              We’ve built you a custom sleep plan. Enter your email to see your
+              sleep plan.
+            </div>
+            <div className="grid gap-1">
+              <div>
+                {" "}
+                <form>
+                  <input
+                    type="email"
+                    // value={}
+                    // onChange={() => handleInputAnswer(event.target.value)}
+                    placeholder="Email"
+                    required
+                    className=" h-[63px] w-full rounded-[11px] text-[#282B2D] font-[700] text-[18px] px-[16px] py-[8px] border-[1px] border-[#dddddd] decoration-inherit transition-colors duration-300 ease-in-out delay-0 "
+                  />
+                </form>
               </div>
-              <div className="text-[20px] text-[#ffffff]">
-                Analyzing your sleep profile...
+              <div className="text-[17px] text-[#ffffff]">
+                Stellar Sleep ensures the confidentiality of your personal
+                information. We’ll email you a copy of your results for
+                convenient access.
               </div>
             </div>
           </div>

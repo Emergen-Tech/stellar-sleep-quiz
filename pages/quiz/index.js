@@ -1,7 +1,9 @@
-import Quiz from '@/components/Quiz';
-import { restoreFromLocalStorage } from '@/reducers/QuizSlice';
-import { useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import TrialPricing from "@/components/Pricing/TrialPricing";
+import Quiz from "@/components/Quiz";
+import StellarGif from "@/components/StellarGif";
+import { restoreFromLocalStorage } from "@/reducers/QuizSlice";
+import { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function QuizPage() {
   const initialized = useRef(false);
@@ -11,13 +13,13 @@ export default function QuizPage() {
 
   useEffect(() => {
     if (initialized.current) {
-      localStorage.setItem('quiz', JSON.stringify(quizState));
+      localStorage.setItem("quiz", JSON.stringify(quizState));
     }
   }, [quizState]);
 
   useEffect(() => {
     if (!initialized.current) {
-      const storedStateString = localStorage.getItem('quiz');
+      const storedStateString = localStorage.getItem("quiz");
       if (storedStateString) {
         try {
           dispatch(restoreFromLocalStorage(JSON.parse(storedStateString)));
@@ -30,7 +32,9 @@ export default function QuizPage() {
   return (
     <>
       <div>
-        <Quiz />
+        {/* <Quiz /> */}
+        {/* <StellarGif /> */}
+        <TrialPricing />
       </div>
     </>
   );
