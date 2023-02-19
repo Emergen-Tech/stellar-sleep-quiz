@@ -1,19 +1,14 @@
-import logo from "@/images/logo.png";
+import logo from '@/images/logo.png';
 // import personalizedApproachSleepImage from "@/images/personalizedApproachSleep.png";
-import Image from "next/image";
-import aasm from "@/images/aasm.png";
-import acp from "@/images/acp.png";
-import { AiOutlineArrowLeft } from "react-icons/ai";
+import Image from 'next/image';
+import { AiOutlineArrowLeft } from 'react-icons/ai';
 // import locationSVG from "@/images/locationSVG.svg";
-import { useSelector, useDispatch } from "react-redux";
+import JAMA from '@/images/JAMA.png';
 import {
   moveToNextQuestion,
   moveTopreviousQuestion,
-  // submitAnswer,
-  // selectQuestion,
-} from "@/reducers/QuizSlice";
-import { useState, useEffect } from "react";
-import JAMA from "@/images/JAMA.png";
+} from '@/reducers/QuizSlice';
+import { useDispatch } from 'react-redux';
 
 export default function AnalyzingPage() {
   const dispatch = useDispatch();
@@ -30,51 +25,50 @@ export default function AnalyzingPage() {
 
   return (
     <>
-      <div className="w-[400px] max-w-[100%] min-h-[100vh] max-h-auto grid justify-center p-5 px-7 bg-[#37533C] overflow-y-auto">
-        <div className="w-full grid gap-4">
-          <div className="flex ">
-            <div className="w-[25%]">
+      <div className='w-[400px] max-w-[100%] min-h-[100vh] max-h-auto grid justify-center p-5 px-7 bg-[#37533C] overflow-y-auto'>
+        <div className='w-full grid gap-4'>
+          <div className='flex '>
+            <div className='w-[25%]'>
               <button
                 // type="button"
                 onClick={() => handlePreviousPage()}
-                className=" text-white text-[30px]"
-              >
+                className=' text-white text-[30px]'>
                 <AiOutlineArrowLeft />
               </button>
             </div>
-            <div className="flex justify-center">
+            <div className='flex justify-center'>
               <Image
                 src={logo}
-                alt="logo"
-                width="150"
-                height="120"
-                className="w-[140px] h-[32px]"
+                alt='logo'
+                width='150'
+                height='120'
+                className='w-[140px] h-[32px]'
               />
             </div>
           </div>
-          <div className="grid gap-5 justify-center">
-            <div className="grid gap-4">
-              <div className="text-[20px] text-[#ffffff]">
+          <div className='grid gap-5 justify-center'>
+            <div className='grid gap-4'>
+              <div className='text-[20px] text-[#ffffff]'>
                 Research shows that while sleeping pills can work in the short
                 term, they tend to quickly become less effective over time.
               </div>
-              <div className="text-[20px] text-[#ffffff]">
+              <div className='text-[20px] text-[#ffffff]'>
                 If you’re currently on sleeping pills, you can use that in
                 combination with Stellar Sleep to get the temporary relief from
                 sleeping pills combined with the permanent results from Stellar
                 Sleep.
               </div>
-              <div className="grid gap-3 p-2">
-                <div className="flex justify-center">
+              <div className='grid gap-3 p-2'>
+                <div className='flex justify-center'>
                   <Image
                     src={JAMA}
-                    alt="JAMA"
+                    alt='JAMA'
                     width={200}
                     height={200}
-                    className="w-[140px] object-contain"
+                    className='w-[140px] object-contain'
                   />
                 </div>
-                <div className="text-[12px] w-full text-center text-[#ffffff] italic">
+                <div className='text-[12px] w-full text-center text-[#ffffff] italic'>
                   “[Psychology] in combination with medication produced
                   significant improvements of sleep latency and efficiency. The
                   best long-term outcome was obtained with patients treated with
@@ -84,11 +78,10 @@ export default function AnalyzingPage() {
             </div>
           </div>
 
-          <div className="w-full h-[100px]">
+          <div className='w-full h-[100px]'>
             <button
               onClick={() => handleNextPage()}
-              className="bg-[#DE8F6E] w-full h-[70px] text-white text-[20px] text-center rounded-[10px] my-[20px]"
-            >
+              className='bg-[#DE8F6E] w-full h-[70px] text-white text-[20px] text-center rounded-[10px] my-[20px]'>
               Next
             </button>
           </div>
