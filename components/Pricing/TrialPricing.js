@@ -1,8 +1,14 @@
 import TrialPricingArrow from "@/images/TrialPricingArrow.svg";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function TrialPricing() {
   const priceButton = ["$0.99", "$3", "$9", "$18.37"];
+  const [Pricing, setPricing] = useState();
+
+  function handleSelectPricing(selectedOption) {
+    setPricing(selectedOption);
+  }
 
   return (
     <>
@@ -32,7 +38,10 @@ export default function TrialPricing() {
               return (
                 <button
                   key={index}
-                  className={`w-[24%] h-[50px] flex justify-center items-center rounded-[10px] bg-[#F6F4EE]`}
+                  className={`w-[24%] h-[50px] flex justify-center items-center rounded-[10px] bg-[#F6F4EE] hover:scale-[1.02] transition-all ${
+                    Pricing === index ? "bg-[#E4DECE]" : ""
+                  }`}
+                  onClick={() => handleSelectPricing(index)}
                 >
                   {index}
                 </button>

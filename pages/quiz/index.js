@@ -2,6 +2,7 @@ import Quiz from "@/components/Quiz";
 import { restoreFromLocalStorage } from "@/reducers/QuizSlice";
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import GetAccess from "@/components/Pricing/GetAccess";
 
 export default function QuizPage() {
   const initialized = useRef(false);
@@ -30,7 +31,8 @@ export default function QuizPage() {
   return (
     <>
       <div>
-        <Quiz />
+        {/* <Quiz /> */}
+        <GetAccess />
       </div>
     </>
   );
