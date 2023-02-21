@@ -1,25 +1,25 @@
-// import ProgressBar from "./ProgressBar";
+import ProgressBar from "./ProgressBar";
 import {
   moveToNextQuestion,
   moveTopreviousQuestion,
-} from '@/reducers/QuizSlice';
-import { AiOutlineArrowLeft } from 'react-icons/ai';
-import { useDispatch, useSelector } from 'react-redux';
-import CheckBoxQuiz from './quizTypes/CheckBoxQuiz';
-import MultipleChoiceQuiz from './quizTypes/MultipleChoiceQuiz';
-import BehavioraltherapyInfo from './static/BehavioraltherapyInfo';
-import PsychologyBasedApproach from './static/PsychologyBasedApproach';
-import QualitySleepGraph from './static/QualitySleepGraph';
+} from "@/reducers/QuizSlice";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import CheckBoxQuiz from "./quizTypes/CheckBoxQuiz";
+import MultipleChoiceQuiz from "./quizTypes/MultipleChoiceQuiz";
+import BehavioraltherapyInfo from "./static/BehavioraltherapyInfo";
+import PsychologyBasedApproach from "./static/PsychologyBasedApproach";
+import QualitySleepGraph from "./static/QualitySleepGraph";
 // import Template from "./common/Template";
-import AverageSleepResult from './dynamic/AverageSleepResult';
-import AverageSleepResult2 from './dynamic/AverageSleepResult2';
-import InsomniaSeverityIndex from './dynamic/InsomniaSeverityIndex';
-import SuccessRate from './dynamic/SuccessRate';
-import InputFieldQuiz from './quizTypes/InputFieldQuiz';
-import AnalyzingPage from './static/AnalyzingPage';
-import PersonalizedApproachSleep from './static/PersonalizedApproachSleep';
-import SleepHygiene from './static/SleepHygiene';
-import SleepingPillsAndStellarSleep from './static/SleepingPillsAndStellarSleepResearch';
+import AverageSleepResult from "./dynamic/AverageSleepResult";
+import AverageSleepResult2 from "./dynamic/AverageSleepResult2";
+import InsomniaSeverityIndex from "./dynamic/InsomniaSeverityIndex";
+import SuccessRate from "./dynamic/SuccessRate";
+import InputFieldQuiz from "./quizTypes/InputFieldQuiz";
+import AnalyzingPage from "./static/AnalyzingPage";
+import PersonalizedApproachSleep from "./static/PersonalizedApproachSleep";
+import SleepHygiene from "./static/SleepHygiene";
+import SleepingPillsAndStellarSleep from "./static/SleepingPillsAndStellarSleepResearch";
 
 export default function Quiz() {
   const dispatch = useDispatch();
@@ -54,24 +54,57 @@ export default function Quiz() {
   //   (i) => i.output.questionVar === 'sleep_improvement_strategies_attempted'
   // ).output.answerVar;
 
+  const AllquestionsLength = questions.filter(
+    (q) =>
+      q.inputType === "multipleChoice" ||
+      q.inputType === "CheckBox" ||
+      q.inputType === "InputField"
+  );
+
+  const question_Till_Current_Index = questions.slice(0, currentQuestion);
+
+  const question_Length_Till_Current_Index = question_Till_Current_Index.filter(
+    (q) =>
+      q.inputType === "multipleChoice" ||
+      q.inputType === "CheckBox" ||
+      q.inputType === "InputField"
+  );
+
+  const question_Length_Till_Current_Index_Percentage =
+    (question_Length_Till_Current_Index.length / AllquestionsLength.length) *
+    100;
+
+  console.log(AllquestionsLength, "length");
+  console.log(question_Length_Till_Current_Index, "currentQuestionLength");
+  console.log(Math.round(question_Length_Till_Current_Index_Percentage), "pct");
   return (
-    <div className='bg-transparent p-4 w-[400px]'>
-      {current?.inputType === 'static' ? (
-        ''
-      ) : current?.inputType === 'dynamic' ? (
-        ''
+    <div className="bg-transparent w-[400px]">
+      {current?.inputType === "static" ? (
+        ""
+      ) : current?.inputType === "dynamic" ? (
+        ""
       ) : (
-        <div className='flex gap-8 pr-16 justify-center py-[20px]'>
-          {currentQuestion > 0 && (
-            <button
-              type='button'
-              onClick={() => handlePreviousPage()}
-              className=' text-white text-[20px]'>
-              <AiOutlineArrowLeft />
-            </button>
-          )}
-          <div className='text-[15px] text-[#FFFFFF]'>
-            📋 Understanding your sleep profile
+        <div className="grid">
+          <div className="flex gap-8 pr-16 justify-center py-[20px]">
+            {currentQuestion > 0 && (
+              <button
+                type="button"
+                onClick={() => handlePreviousPage()}
+                className=" text-white text-[20px]"
+              >
+                <AiOutlineArrowLeft />
+              </button>
+            )}
+            <div className="text-[15px] text-[#FFFFFF]">
+              📋 Understanding your sleep profile
+            </div>
+          </div>
+          <div className="w-[350px]">
+            <ProgressBar
+              progress={Math.round(
+                question_Length_Till_Current_Index_Percentage
+              )}
+            />
           </div>
         </div>
       )}
@@ -79,27 +112,27 @@ export default function Quiz() {
       {(() => {
         if (current)
           switch (current.inputType) {
-            case 'multipleChoice':
+            case "multipleChoice":
               return <MultipleChoiceQuiz />;
-            case 'CheckBox':
+            case "CheckBox":
               return <CheckBoxQuiz />;
-            case 'InputField':
+            case "InputField":
               return <InputFieldQuiz />;
-            case 'static':
+            case "static":
               switch (current.typeStatic) {
-                case 'behavioral therapy static page':
+                case "behavioral therapy static page":
                   return <BehavioraltherapyInfo />;
-                case 'Quality sleep':
+                case "Quality sleep":
                   return <QualitySleepGraph />;
-                case 'psychology-based approach':
+                case "psychology-based approach":
                   return <PsychologyBasedApproach />;
-                case 'personalized approach sleep':
+                case "personalized approach sleep":
                   return <PersonalizedApproachSleep />;
-                case 'sleep hygiene':
+                case "sleep hygiene":
                   return <SleepHygiene />;
-                case 'sleeping pills':
+                case "sleeping pills":
                   return <SleepingPillsAndStellarSleep />;
-                case 'analyze':
+                case "analyze":
                   return <AnalyzingPage />;
                 default:
                   break;
@@ -145,14 +178,14 @@ export default function Quiz() {
             //     "none_of_the_above" && <AnalyzingPage />
             // );
             // }
-            case 'dynamic':
-              if (current.typeDynamic === 'ISI') {
+            case "dynamic":
+              if (current.typeDynamic === "ISI") {
                 return <InsomniaSeverityIndex />;
-              } else if (current.typeDynamic === 'Average Sleep') {
+              } else if (current.typeDynamic === "Average Sleep") {
                 return <AverageSleepResult />;
-              } else if (current.typeDynamic === 'Average Sleep 2') {
+              } else if (current.typeDynamic === "Average Sleep 2") {
                 return <AverageSleepResult2 />;
-              } else if (current.typeDynamic === 'success rate') {
+              } else if (current.typeDynamic === "success rate") {
                 return <SuccessRate />;
               }
             default:
