@@ -1,58 +1,61 @@
-import TrialSleepLogo from "@/images/TrialSleepLogo.svg";
-import Image from "next/image";
-import bullet from "@/images/bullet.svg";
+import bullet from '@/images/bullet.svg';
+import TrialSleepLogo from '@/images/TrialSleepLogo.svg';
+import Image from 'next/image';
 // import SatisfactionGuaranteeImage from "@/images/SatisfactionGuaranteeImage.svg";
-import AppStoreImage from "@/images/app_store.png";
-import GooglePlayImage from "@/images/google_play.png";
+import AppStoreImage from '@/images/app_store.png';
+import GooglePlayImage from '@/images/google_play.png';
+import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
-export default function TrialDetails() {
+export default function PartnerAccess() {
   const stellarBenefits = [
-    "Start sleeping better in 5-8 minutes a day",
-    "Feel well-rested, and rejuvenated every night",
+    'Start sleeping better in 5-8 minutes a day',
+    'Feel well-rested, and rejuvenated every night',
   ];
+  const promo = useSelector((state) => state.quiz.promo);
 
   return (
     <>
-      <div className="w-[400px] max-w-[100%] min-h-[100vh] max-h-[100%] bg-[#FFFFFF] ">
-        <div className=" bg-[#3b543c] text-left grid gap-5 p-7">
-          <div className=" text-[17px] text-[#ffffff] font-bold text-left">
+      <div className='w-[400px] max-w-[100%] min-h-[100vh] max-h-[100%] bg-[#FFFFFF] '>
+        <div className=' bg-[#3b543c] text-left grid gap-5 p-7'>
+          <div className=' text-[17px] text-[#ffffff] font-bold text-left'>
             Welcome to Stellar Sleep
           </div>
-          <div className=" text-[15px] text-[#ffffff]">
+          <div className=' text-[15px] text-[#ffffff]'>
             As one of our special partners, you're receiving free access to
             Stellar Sleep. Follow the instructions below to get access.
           </div>
-          <div className=" text-[15px] text-[#ffffff]">
+          <div className=' text-[15px] text-[#ffffff]'>
             Note: This is a private page for Stellar Sleep partners only. Please
             do not share this page with others.
           </div>
         </div>
 
-        <div className="grid p-7 gap-4">
-          <div className="flex gap-4">
-            <div className="flex w-[70px]  items-center justify-center">
+        <div className='grid p-7 gap-4'>
+          <div className='flex gap-4'>
+            <div className='flex w-[70px]  items-center justify-center'>
               <Image
                 src={TrialSleepLogo}
-                alt="trial sleep logo"
+                alt='trial sleep logo'
                 width={200}
                 height={200}
-                className="w-[70px] object-contain"
+                className='w-[70px] object-contain'
               />
             </div>
-            <div className="grid w-[80%] gap-2 text-left">
+            <div className='grid w-[80%] gap-2 text-left'>
               {stellarBenefits.map((index) => {
                 return (
-                  <div key={index} className="flex gap-2 justify-start">
-                    <div className="flex items-center p-0">
+                  <div key={index} className='flex gap-2 justify-start'>
+                    <div className='flex items-center p-0'>
                       <Image
                         src={bullet}
-                        alt="bullet point"
+                        alt='bullet point'
                         width={200}
                         height={200}
-                        className="w-[25px] h-[25px]"
+                        className='w-[25px] h-[25px]'
                       />
                     </div>
-                    <div className="text-[17px] font-[300] text-[#2C2B2B]">
+                    <div className='text-[17px] font-[300] text-[#2C2B2B]'>
                       {index}
                     </div>
                   </div>
@@ -61,55 +64,75 @@ export default function TrialDetails() {
             </div>
           </div>
 
-          <div className="grid justify-center w-full p-4 rounded-[10px] bg-[#A9DDCA]">
-            <div className="text-[15px] grid gap-2 text-center text-[#2C2B2B] font-bold">
+          <div className='grid justify-center w-full p-4 rounded-[10px] bg-[#A9DDCA]'>
+            <div className='text-[15px] grid gap-2 text-center text-[#2C2B2B] font-bold'>
               <div>1. Download App</div>
-              <div className="grid justify-center">
-                <Image
-                  src={AppStoreImage}
-                  alt="appstore image"
-                  width={200}
-                  height={200}
-                  className="ml-4 w-[170px]"
-                />
-                <Image
-                  src={GooglePlayImage}
-                  alt="Google play image"
-                  width={200}
-                  height={200}
-                  className="w-[200px]"
-                />
+              <div className='grid justify-center'>
+                <Link
+                  href={
+                    'https://apps.apple.com/us/app/slumber-one/id1602312365'
+                  }
+                  target={'_blank'}>
+                  <Image
+                    src={AppStoreImage}
+                    alt='appstore image'
+                    width={200}
+                    height={200}
+                    className='ml-4 w-[170px]'
+                  />
+                </Link>
+                <Link
+                  href={
+                    'https://play.google.com/store/apps/details?id=one.slumber.client'
+                  }
+                  target={'_blank'}>
+                  <Image
+                    src={GooglePlayImage}
+                    alt='Google play image'
+                    width={200}
+                    height={200}
+                    className='w-[200px]'
+                  />
+                </Link>
               </div>
               <div>
-                <div className="text-[15px] text-center text-[#2C2B2B] font-bold">
+                <div className='text-[15px] text-center text-[#2C2B2B] font-bold'>
                   2. Enter Your Access Code
+                </div>
+                <div className=' text-[15px] font-light'>
+                  After you sign up in the app, please enter the access code
+                  below (no spaces). You will not receive an access code via
+                  email.
+                </div>
+                <div className='text-[15px] text-center text-[#2C2B2B] font-bold italic'>
+                  {promo}
                 </div>
               </div>
             </div>
           </div>
 
-          {/* <div className="flex items-center justify-center">
+          <div className='flex items-center justify-center'>
             <div>
               <Image
                 src={bullet}
                 width={100}
                 height={100}
-                className="w-[30px]"
+                className='w-[30px]'
               />
             </div>
-            <div className="text-[17px] text-center text-[#2C2B2B]">
-              You’ll have a week to see how Stellar Sleep uses psychology to
-              create lasting results.
+            <div className='text-[17px] text-center text-[#2C2B2B]'>
+              Feel free to email us at support@stellarsleep.com if you have any
+              questions along the way.
             </div>
             <div>
               <Image
                 src={bullet}
                 width={100}
                 height={100}
-                className="w-[30px]"
+                className='w-[30px]'
               />
             </div>
-          </div> */}
+          </div>
 
           {/* <div className="grid gap-4">
             <div className="uppercase text-[17px] text-left font-bold text-[#2C2B2B] pb-1">

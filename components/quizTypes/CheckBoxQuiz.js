@@ -14,28 +14,18 @@ export default function CheckBoxQuiz() {
   const handleOptionSelect = (option) => {
     if (currentAnswerVars.includes(option)) {
       dispatch(setAnswer(currentAnswerVars.filter((o) => o !== option)));
-      // setSelectedOptions(selectedOptions.filter((o) => o !== option));
     } else {
-      // setSelectedOptions([...selectedOptions, option]);
       dispatch(setAnswer([...currentAnswerVars, option]));
     }
   };
 
-  // useEffect(() => {
-  //   if (output !== '') {
-  //     setSelectedOptions(output);
-  //   }
-  // });
-
   const dispatch = useDispatch();
 
   function handleSubmitResponse() {
-    // setSelectedOption("");
     if (currentAnswerVars.length > 0) {
       dispatch(moveToNextQuestion());
     }
   }
-  // console.log(currentAnswerVars);
 
   return (
     <>

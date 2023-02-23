@@ -1,34 +1,33 @@
 // const { Head } = require("next/head");
 // const { HomePage } = require("./home/index.js");
-import { restoreFromLocalStorage } from '@/reducers/QuizSlice.js';
+import { restoreFromLocalStorage, setUrlParams } from '@/reducers/QuizSlice.js';
 import Head from 'next/head.js';
-import { useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/router.js';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import HomePage from './home/index.js';
 
 export default function Home() {
-  const initialized = useRef(false);
-  const quizState = useSelector((state) => state.quiz);
+  const [initialized, setInitialized] = useState(false);
 
   const dispatch = useDispatch();
+  const router = useRouter();
+
+  function saveUrlParams() {
+    dispatch(setUrlParams(router.query));
+  }
 
   useEffect(() => {
-    if (initialized.current) {
-      localStorage.setItem('quiz', JSON.stringify(quizState));
+    if (!router.query) return;
+    const storedStateString = localStorage.getItem('quiz');
+    if (storedStateString) {
+      try {
+        dispatch(restoreFromLocalStorage(JSON.parse(storedStateString)));
+      } catch (_) {}
     }
-  }, [quizState]);
-
-  useEffect(() => {
-    if (!initialized.current) {
-      const storedStateString = localStorage.getItem('quiz');
-      if (storedStateString) {
-        try {
-          dispatch(restoreFromLocalStorage(JSON.parse(storedStateString)));
-        } catch (_) {}
-      }
-      initialized.current = true;
-    }
-  }, []);
+    saveUrlParams();
+    setInitialized(true);
+  }, [router.query]);
 
   return (
     <>

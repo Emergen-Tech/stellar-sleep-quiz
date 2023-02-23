@@ -15,6 +15,7 @@ const initialState = {
   utm_term: null,
   gclid: null,
   promo: null,
+  email: null,
 };
 
 export const quizSlice = createSlice({
@@ -26,14 +27,14 @@ export const quizSlice = createSlice({
     },
     setAnswer(state, action) {
       state.questions[state.currentQuestion].output.answerVar = action.payload;
+      quizSlice.caseReducers.updateLocalStorage(state);
     },
     redirectQuestion: (state, action) => {
       while (true) {
         const current = state.questions[state.currentQuestion];
         if (current.typeStatic === 'sleep hygiene') {
           const sisa = state.questions.find(
-            (i) =>
-              i.output.questionVar === 'sleep_improvement_strategies_attempted'
+            (i) => i.output.questionVar === 'sleep_tactics_tried_buttons'
           ).output.answerVar;
           if (!sisa.some((strategy) => sleep_hygiene.includes(strategy))) {
             quizSlice.caseReducers.changeCurrentPage(state, action);
@@ -41,8 +42,7 @@ export const quizSlice = createSlice({
           }
         } else if (current.typeStatic === 'sleeping pills') {
           const sisa = state.questions.find(
-            (i) =>
-              i.output.questionVar === 'sleep_improvement_strategies_attempted'
+            (i) => i.output.questionVar === 'sleep_tactics_tried_buttons'
           ).output.answerVar;
           if (!sisa.includes(sleep_pills)) {
             quizSlice.caseReducers.changeCurrentPage(state, action);
@@ -55,22 +55,32 @@ export const quizSlice = createSlice({
     changeCurrentPage: (state, action) => {
       const n = state.questions.length;
       const i = state.currentQuestion + action.payload;
-      state.currentQuestion = ((i % n) + n) % n;
+      state.currentQuestion = Math.min(Math.max(0, i), n - 1);
     },
     moveToNextQuestion: (state) => {
       quizSlice.caseReducers.changeCurrentPage(state, { payload: 1 });
       quizSlice.caseReducers.redirectQuestion(state, { payload: 1 });
+      quizSlice.caseReducers.updateLocalStorage(state);
     },
     moveTopreviousQuestion: (state) => {
       quizSlice.caseReducers.changeCurrentPage(state, { payload: -1 });
       quizSlice.caseReducers.redirectQuestion(state, { payload: -1 });
+      quizSlice.caseReducers.updateLocalStorage(state);
     },
     setUrlParams: (state, action) => {
-      state.utm_term = action.payload.utm_term;
-      state.gclid = action.payload.gclid;
-      state.promo = action.payload.promo || 'SUMMERSALE';
+      state.utm_term = action.payload.utm_term || state.utm_term;
+      state.gclid = action.payload.gclid || state.gclid;
+      state.promo = action.payload.promo || state.promo || 'SUMMERSALE';
+      state.email = action.payload.prefilled_email || state.email;
+      quizSlice.caseReducers.updateLocalStorage(state);
     },
-    resetQuiz: () => initialState,
+    updateLocalStorage: (state) => {
+      localStorage.setItem('quiz', JSON.stringify(state));
+    },
+    resetQuiz: (state) => {
+      state = initialState;
+      quizSlice.caseReducers.updateLocalStorage(state);
+    },
   },
 });
 

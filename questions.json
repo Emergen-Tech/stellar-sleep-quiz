@@ -467,5 +467,45 @@
     "unit": "",
     "typeStatic": "analyze",
     "output": {}
+  },
+  {
+    "id": 34,
+    "inputType": "dynamic",
+    "typeDynamic": "email",
+    "question": "",
+    "choices": {},
+    "unit": "",
+    "typeStatic": "",
+    "output": {}
+  },
+  {
+    "id": 35,
+    "inputType": "dynamic",
+    "typeDynamic": "gif",
+    "question": "",
+    "choices": {},
+    "unit": "",
+    "typeStatic": "",
+    "output": {}
+  },
+  {
+    "id": 36,
+    "inputType": "dynamic",
+    "typeDynamic": "pricing",
+    "question": "",
+    "choices": {},
+    "unit": "",
+    "typeStatic": "",
+    "output": { "questionVar": "price_options", "answerVar": [] }
+  },
+  {
+    "id": 37,
+    "inputType": "dynamic",
+    "typeDynamic": "payment",
+    "question": "",
+    "choices": {},
+    "unit": "",
+    "typeStatic": "",
+    "output": {}
   }
 ]

@@ -5,32 +5,19 @@ import { moveToNextQuestion, setAnswer } from '@/reducers/QuizSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function MultipleChoiceQuiz() {
-  const [selectedOption, setSelectedOption] = useState([]);
   const current = useSelector(
     (state) => state.quiz.questions[state.quiz.currentQuestion]
   );
   const question = current.question;
   const choices = current.choices;
 
-  // const [selectChoice, setSelectedChoice] = useState();
   const dispatch = useDispatch();
 
   function handleOptionClick(option) {
-    // setSelectedChoice(option);
     dispatch(setAnswer([option]));
-    // setSelectedOption(option);
   }
 
-  // useEffect(() => {
-  // if (output !== "") {
-  //   setSelectedOption(output);
-  //   console.log(output, "output");
-  // }
-  // });
-
   function handleSubmitResponse() {
-    // dispatch(setAnswer(selectedOption));
-    // setSelectedOption("");
     if (currentAnswerVar) {
       dispatch(moveToNextQuestion());
     }
@@ -38,7 +25,6 @@ export default function MultipleChoiceQuiz() {
 
   const currentAnswerVar =
     current.output.answerVar.length > 0 ? current.output.answerVar[0] : null;
-  // console.log(currentAnswerVar, 'mcqs select');
 
   return (
     <>

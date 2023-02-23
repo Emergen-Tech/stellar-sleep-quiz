@@ -6,12 +6,6 @@ import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 
 export default function Landing() {
-  const dispatch = useDispatch();
-  const router = useRouter();
-
-  function saveUrlParams() {
-    dispatch(setUrlParams(router.query));
-  }
 
   return (
     <>
@@ -39,7 +33,6 @@ export default function Landing() {
           <div>
             <Link href='/quiz'>
               <button
-                onClick={saveUrlParams}
                 className='w-[360px] h-[60px] flex justify-center items-center rounded-[50px] bg-[#e08c6c] text-[#ffffff] text-[20px]'>
                 Start
               </button>
