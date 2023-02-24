@@ -3,7 +3,7 @@
 import { restoreFromLocalStorage, setUrlParams } from '@/reducers/QuizSlice.js';
 import Head from 'next/head.js';
 import { useRouter } from 'next/router.js';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import HomePage from './home/index.js';
 
