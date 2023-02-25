@@ -55,7 +55,15 @@ export default function Quiz() {
   );
 
   return (
-    <div className="bg-transparent w-[400px]">
+    <div
+      className={`bg-transparent ${
+        current?.inputType === "multipleChoice" ||
+        current?.inputType === "CheckBox" ||
+        current?.inputType === "InputField"
+          ? "w-[350px]"
+          : "w-[400px]"
+      }`}
+    >
       {current?.inputType === "static" ? (
         ""
       ) : current?.inputType === "dynamic" ? (

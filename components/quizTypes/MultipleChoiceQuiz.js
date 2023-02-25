@@ -42,7 +42,7 @@ export default function MultipleChoiceQuiz() {
 
   return (
     <>
-      <div className="w-[350px]">
+      <div className="w-[350px] mx-auto">
         <h1 className="text-[25px] text-[#ffffff] py-4">{question}</h1>
         <div className="grid gap-2">
           {Object.entries(choices).map((entry) => (
