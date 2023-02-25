@@ -11,7 +11,8 @@
     "unit": "",
     "typeStatic": "",
     "typeDynamic": "",
-    "output": { "questionVar": "goal", "answerVar": [] }
+    "output": { "questionVar": "goal", "answerVar": [] },
+    "page_name": "goal_page"
   },
   {
     "id": 2,
@@ -26,7 +27,8 @@
     "unit": "",
     "typeStatic": "",
     "typeDynamic": "",
-    "output": { "questionVar": "frequently_wake_up", "answerVar": [] }
+    "output": { "questionVar": "frequently_wake_up", "answerVar": [] },
+    "page_name": "frequently_wake_up_page"
   },
   {
     "id": 3,
@@ -36,7 +38,8 @@
     "typeDynamic": "",
     "question": "",
     "choices": [],
-    "output": { "questionVar": "", "answerVar": [] }
+    "output": { "questionVar": "", "answerVar": [] },
+    "page_name": "expert_validation"
   },
   {
     "id": 4,
@@ -55,7 +58,8 @@
     "output": {
       "questionVar": "isi_1",
       "answerVar": []
-    }
+    },
+    "page_name": "isi_1"
   },
   {
     "id": 5,
@@ -74,7 +78,8 @@
     "output": {
       "questionVar": "isi_2",
       "answerVar": []
-    }
+    },
+    "page_name": "isi_2"
   },
   {
     "id": 6,
@@ -93,7 +98,8 @@
     "output": {
       "questionVar": "isi_3",
       "answerVar": []
-    }
+    },
+    "page_name": "isi_3"
   },
   {
     "id": 7,
@@ -112,7 +118,8 @@
     "output": {
       "questionVar": "isi_4",
       "answerVar": []
-    }
+    },
+    "page_name": "isi_4"
   },
   {
     "id": 8,
@@ -131,7 +138,8 @@
     "output": {
       "questionVar": "isi_5",
       "answerVar": []
-    }
+    },
+    "page_name": "isi_5"
   },
   {
     "id": 9,
@@ -150,7 +158,8 @@
     "output": {
       "questionVar": "isi_6",
       "answerVar": []
-    }
+    },
+    "page_name": "isi_6"
   },
   {
     "id": 10,
@@ -169,7 +178,8 @@
     "output": {
       "questionVar": "isi_7",
       "answerVar": []
-    }
+    },
+    "page_name": "isi_7"
   },
   {
     "id": 11,
@@ -179,7 +189,8 @@
     "choices": [],
     "unit": "",
     "typeStatic": "",
-    "output": { "questionVar": "ISI_result", "answerVar": [] }
+    "output": { "questionVar": "ISI_result", "answerVar": [] },
+    "page_name": "isi_score"
   },
   {
     "id": 12,
@@ -198,7 +209,8 @@
     "output": {
       "questionVar": "poor_sleep_impact",
       "answerVar": []
-    }
+    },
+    "page_name": "poor_sleep_impact_page"
   },
   {
     "id": 13,
@@ -215,7 +227,8 @@
     "output": {
       "questionVar": "consequences",
       "answerVar": []
-    }
+    },
+    "page_name": "consequences_page"
   },
   {
     "id": 14,
@@ -225,7 +238,8 @@
     "typeDynamic": "",
     "question": "",
     "choices": {},
-    "output": {}
+    "output": {},
+    "page_name": "results_through_psychology_info_page"
   },
   {
     "id": 15,
@@ -235,7 +249,8 @@
     "typeDynamic": "",
     "question": "",
     "choices": {},
-    "output": {}
+    "output": {},
+    "page_name": "psychology_based_approach_info_page"
   },
   {
     "id": 16,
@@ -245,7 +260,8 @@
     "typeDynamic": "",
     "question": "Sex and hormones impact how you sleep. What sex best describes you?",
     "choices": { "male": "Male", "female": "Female", "other": "Other" },
-    "output": { "questionVar": "sex", "answerVar": [] }
+    "output": { "questionVar": "sex", "answerVar": [] },
+    "page_name": "sex_page"
   },
   {
     "id": 17,
@@ -262,7 +278,8 @@
       "60s": "60s",
       "+70": "+70"
     },
-    "output": { "questionVar": "age", "answerVar": [] }
+    "output": { "questionVar": "age", "answerVar": [] },
+    "page_name": "age_page"
   },
   {
     "id": 18,
@@ -272,7 +289,8 @@
     "typeDynamic": "",
     "question": "How long does it take for you to fall asleep?",
     "choices": {},
-    "output": { "questionVar": "how_long_to_fall_asleep", "answerVar": [] }
+    "output": { "questionVar": "how_long_to_fall_asleep", "answerVar": [] },
+    "page_name": "how_long_to_fall_asleep_page"
   },
   {
     "id": 19,
@@ -282,7 +300,8 @@
     "choices": {},
     "unit": "",
     "typeStatic": "",
-    "output": { "questionVar": "average_latency", "answerVar": [] }
+    "output": { "questionVar": "average_latency", "answerVar": [] },
+    "page_name": "latency_comparison"
   },
   {
     "id": 20,
@@ -292,7 +311,8 @@
     "choices": {},
     "unit": "hours",
     "typeStatic": "",
-    "output": { "questionVar": "time_in_bed", "answerVar": [] }
+    "output": { "questionVar": "time_in_bed", "answerVar": [] },
+    "page_name": "time_spent_in_bed_page"
   },
   {
     "id": 21,
@@ -302,7 +322,8 @@
     "choices": {},
     "unit": "hours",
     "typeStatic": "",
-    "output": { "questionVar": "time_asleep", "answerVar": [] }
+    "output": { "questionVar": "time_asleep", "answerVar": [] },
+    "page_name": "time_asleep_page"
   },
   {
     "id": 22,
@@ -312,7 +333,8 @@
     "choices": {},
     "unit": "hours",
     "typeStatic": "",
-    "output": { "questionVar": "average_sleep_duration", "answerVar": [] }
+    "output": { "questionVar": "average_sleep_duration", "answerVar": [] },
+    "page_name": "sleep_duration_comparison"
   },
   {
     "id": 23,
@@ -328,7 +350,8 @@
     },
     "unit": "",
     "typeStatic": "",
-    "output": { "questionVar": "how_long_sleep_problems", "answerVar": [] }
+    "output": { "questionVar": "how_long_sleep_problems", "answerVar": [] },
+    "page_name": "how_long_sleep_problems_page"
   },
   {
     "id": 24,
@@ -338,7 +361,8 @@
     "choices": {},
     "unit": "",
     "typeStatic": "",
-    "output": { "questionVar": "success_rate", "answerVar": [] }
+    "output": { "questionVar": "success_rate", "answerVar": [] },
+    "page_name": "good_fit_info_page"
   },
   {
     "id": 25,
@@ -348,7 +372,8 @@
     "choices": {},
     "unit": "",
     "typeStatic": "personalized approach sleep",
-    "output": {}
+    "output": {},
+    "page_name": "research_partners_page"
   },
   {
     "id": 26,
@@ -365,7 +390,8 @@
     "output": {
       "questionVar": "stressed_thinking_to_go_bed",
       "answerVar": []
-    }
+    },
+    "page_name": "stressed_thinking_to_go_bed"
   },
   {
     "id": 27,
@@ -382,7 +408,8 @@
     "output": {
       "questionVar": "wakeup_middle_night",
       "answerVar": []
-    }
+    },
+    "page_name": "wakeup_middle_night_page"
   },
   {
     "id": 28,
@@ -399,7 +426,8 @@
     "output": {
       "questionVar": "mind_race_in_bed",
       "answerVar": []
-    }
+    },
+    "page_name": "mind_race_in_bed_page"
   },
   {
     "id": 29,
@@ -416,7 +444,8 @@
     "output": {
       "questionVar": "tell_yourself_7_8_hours_buttons",
       "answerVar": []
-    }
+    },
+    "page_name": "tell_yourself_7_8_hours"
   },
   {
     "id": 30,
@@ -436,7 +465,8 @@
     "output": {
       "questionVar": "sleep_tactics_tried_buttons",
       "answerVar": []
-    }
+    },
+    "page_name": "sleep_tactics_tried"
   },
   {
     "id": 31,
@@ -446,7 +476,8 @@
     "choices": {},
     "unit": "",
     "typeStatic": "sleep hygiene",
-    "output": {}
+    "output": {},
+    "page_name": "not_alone_sleep_hygiene"
   },
   {
     "id": 32,
@@ -456,7 +487,8 @@
     "choices": {},
     "unit": "",
     "typeStatic": "sleeping pills",
-    "output": {}
+    "output": {},
+    "page_name": "research_sleeping_pills"
   },
   {
     "id": 33,

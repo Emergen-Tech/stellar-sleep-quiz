@@ -1,13 +1,23 @@
-import { moveToNextQuestion } from '@/reducers/QuizSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { moveToNextQuestion } from "@/reducers/QuizSlice";
+import { useDispatch, useSelector } from "react-redux";
+import Image from "next/image";
+
+import first_gif from "@/images/Giffs/1.gif";
+import second_gif from "@/images/Giffs/2.gif";
+import third_gif from "@/images/Giffs/3.gif";
+import fourth_gif from "@/images/Giffs/4.gif";
+import fifth_gif from "@/images/Giffs/5.gif";
+import sixth_gif from "@/images/Giffs/6.gif";
+import seventh_gif from "@/images/Giffs/7.gif";
+import eigth_gif from "@/images/Giffs/8.gif";
 
 export default function StellarGif() {
   const dispatch = useDispatch();
   const allQuestions = useSelector((state) => state.quiz.questions);
   const questionVars = [
-    'consequences',
-    'stressed_thinking_to_go_bed',
-    'mind_race_in_bed',
+    "consequences",
+    "stressed_thinking_to_go_bed",
+    "mind_race_in_bed",
   ];
   const answerVars = questionVars.map(
     (questionVar) =>
@@ -18,47 +28,47 @@ export default function StellarGif() {
   console.log(answerVars);
 
   const gifs = [
-    'https://firebasestorage.googleapis.com/v0/b/savvy-flow-uploads/o/5-deloop-min_26906469232563524.gif?alt=media&amp;token=1fb77c58-95bd-4c62-98f3-3e274068d942',
-    'https://firebasestorage.googleapis.com/v0/b/savvy-flow-uploads/o/5-deloop-min_26906469232563524.gif?alt=media&amp;token=1fb77c58-95bd-4c62-98f3-3e274068d942',
-    'https://firebasestorage.googleapis.com/v0/b/savvy-flow-uploads/o/5-deloop-min_26906469232563524.gif?alt=media&amp;token=1fb77c58-95bd-4c62-98f3-3e274068d942',
-    'https://firebasestorage.googleapis.com/v0/b/savvy-flow-uploads/o/5-deloop-min_26906469232563524.gif?alt=media&amp;token=1fb77c58-95bd-4c62-98f3-3e274068d942',
-    'https://firebasestorage.googleapis.com/v0/b/savvy-flow-uploads/o/5-deloop-min_26906469232563524.gif?alt=media&amp;token=1fb77c58-95bd-4c62-98f3-3e274068d942',
-    'https://firebasestorage.googleapis.com/v0/b/savvy-flow-uploads/o/5-deloop-min_26906469232563524.gif?alt=media&amp;token=1fb77c58-95bd-4c62-98f3-3e274068d942',
-    'https://firebasestorage.googleapis.com/v0/b/savvy-flow-uploads/o/5-deloop-min_26906469232563524.gif?alt=media&amp;token=1fb77c58-95bd-4c62-98f3-3e274068d942',
-    'https://firebasestorage.googleapis.com/v0/b/savvy-flow-uploads/o/5-deloop-min_26906469232563524.gif?alt=media&amp;token=1fb77c58-95bd-4c62-98f3-3e274068d942',
+    first_gif,
+    second_gif,
+    third_gif,
+    fourth_gif,
+    fifth_gif,
+    sixth_gif,
+    seventh_gif,
+    eigth_gif,
   ];
 
-  function getGif() {
-    if (answerVars[0] != 'none') {
-      if (answerVars[1] != 'no') {
-        if (answerVars[2] != 'no') {
+  const getGif = () => {
+    if (answerVars[0] != "none") {
+      if (answerVars[1] != "no") {
+        if (answerVars[2] != "no") {
           return gifs[0];
         } else {
           return gifs[1];
         }
       } else {
-        if (answerVars[2] != 'no') {
+        if (answerVars[2] != "no") {
           return gifs[2];
         } else {
           return gifs[3];
         }
       }
     } else {
-      if (answerVars[1] != 'no') {
-        if (answerVars[2] != 'no') {
+      if (answerVars[1] != "no") {
+        if (answerVars[2] != "no") {
           return gifs[4];
         } else {
           return gifs[5];
         }
       } else {
-        if (answerVars[2] != 'no') {
+        if (answerVars[2] != "no") {
           return gifs[6];
         } else {
           return gifs[7];
         }
       }
     }
-  }
+  };
 
   function handleNextPage() {
     dispatch(moveToNextQuestion());
@@ -72,8 +82,14 @@ export default function StellarGif() {
 
   return (
     <>
-      <div className='flex justify-center'>
-        <img onLoad={redirect} src={getGif()} width='408' height='726'></img>
+      <div className="flex justify-center">
+        <Image
+          onLoad={() => redirect()}
+          src={getGif()}
+          alt="gif"
+          width="408"
+          height="726"
+        />
       </div>
     </>
   );

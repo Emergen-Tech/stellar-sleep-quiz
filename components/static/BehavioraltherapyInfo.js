@@ -24,6 +24,25 @@ export default function BehavioraltherapyInfo() {
   function handleNextPage() {
     dispatch(moveToNextQuestion());
   }
+
+  const current = useSelector(
+    (state) => state.quiz.questions[state.quiz.currentQuestion]
+  );
+  const question = current.question;
+
+  const page_name = question.page_name;
+
+  const props = {
+    step: { page_name },
+    flowId: "savvy",
+  };
+  if (
+    typeof window !== "undefined" &&
+    window.rudderanalytics &&
+    typeof window.rudderanalytics.track === "function"
+  ) {
+    window.rudderanalytics.track(`start sleep quiz`, props);
+  }
   return (
     <>
       <div className="w-[400px] max-w-[100%] min-h-[100vh] max-h-[100%] grid justify-center p-5 px-7 bg-[#37533C]">

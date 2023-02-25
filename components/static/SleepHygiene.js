@@ -6,7 +6,7 @@ import {
 } from "@/reducers/QuizSlice";
 import Image from "next/image";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function SleepHygiene() {
   const dispatch = useDispatch();
@@ -19,6 +19,25 @@ export default function SleepHygiene() {
 
   function handleNextPage() {
     dispatch(moveToNextQuestion());
+  }
+
+  const current = useSelector(
+    (state) => state.quiz.questions[state.quiz.currentQuestion]
+  );
+  const question = current.question;
+
+  const page_name = question.page_name;
+
+  const props = {
+    step: { page_name },
+    flowId: "savvy",
+  };
+  if (
+    typeof window !== "undefined" &&
+    window.rudderanalytics &&
+    typeof window.rudderanalytics.track === "function"
+  ) {
+    window.rudderanalytics.track(`start sleep quiz`, props);
   }
 
   return (
