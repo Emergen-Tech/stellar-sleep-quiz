@@ -9,6 +9,7 @@ import {
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 // import logo from "@/images/logo.png";
+import { useEffect, useState } from "react";
 
 export default function AverageSleepResult2() {
   const questions = useSelector((state) => state.quiz.questions);
@@ -65,10 +66,22 @@ export default function AverageSleepResult2() {
     dispatch(setAnswer([averageSleepResult]));
     dispatch(moveToNextQuestion());
   }
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  });
   return (
     <>
       <div className="w-[400px] max-w-[100%] min-h-[100vh] max-h-[100%] grid justify-center p-5 px-7 bg-[#37533C]">
-        <div className="w-full grid h-auto space-y-4">
+        <div
+          className={`w-full grid h-auto space-y-4 transition-all ${
+            isVisible
+              ? "opacity-100 transform translate-y-0"
+              : "opacity-0 transform translate-y-10"
+          } duration-500`}
+        >
           <div className="flex">
             <div className="w-[25%]">
               <button

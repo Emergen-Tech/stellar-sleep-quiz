@@ -64,8 +64,10 @@ export default function CheckBoxQuiz() {
   return (
     <>
       <div
-        className={`w-[350px] transition-opacity ${
-          isVisible ? "opacity-100" : "opacity-0"
+        className={`w-[350px] transition-all ${
+          isVisible
+            ? "opacity-100 transform translate-y-0"
+            : "opacity-0 transform translate-y-10"
         } duration-500`}
       >
         <h1 className="text-[25px] text-[#ffffff] py-4">{question}</h1>

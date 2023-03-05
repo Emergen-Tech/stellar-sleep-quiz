@@ -45,10 +45,22 @@ export default function PersonalizedApproachSleep() {
   ) {
     window.rudderanalytics.track(`start sleep quiz`, props);
   }
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  });
   return (
     <>
       <div className="w-[400px] max-w-[100%] min-h-[100vh] max-h-auto grid justify-center p-5 px-7 bg-[#37533C] overflow-y-auto">
-        <div className="w-full grid gap-4">
+        <div
+          className={`w-full grid gap-4 transition-all ${
+            isVisible
+              ? "opacity-100 transform translate-y-0"
+              : "opacity-0 transform translate-y-10"
+          } duration-500`}
+        >
           <div className="flex ">
             <div className="w-[25%]">
               <button

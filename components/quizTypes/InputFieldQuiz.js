@@ -1,5 +1,3 @@
-// import ProgressBar from "./ProgressBar";
-// import { AiOutlineArrowLeft } from "react-icons/ai";
 import { moveToNextQuestion, setAnswer } from "@/reducers/QuizSlice";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
@@ -50,8 +48,10 @@ export default function InputFieldQuiz() {
   return (
     <>
       <div
-        className={`w-[350px] transition-opacity ${
-          isVisible ? "opacity-100" : "opacity-0"
+        className={`w-[350px] transition-all ${
+          isVisible
+            ? "opacity-100 transform translate-y-0"
+            : "opacity-0 transform translate-y-10"
         } duration-500`}
       >
         <h1 className="text-[25px] text-[#ffffff] py-4">{question}</h1>
