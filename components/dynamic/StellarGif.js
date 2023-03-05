@@ -82,13 +82,15 @@ export default function StellarGif() {
 
   return (
     <>
-      <div className="flex justify-center">
+      <div className="w-[400px] bg-[#000000] h-[100vh] flex justify-center">
         <Image
           onLoad={() => redirect()}
           src={getGif()}
           alt="gif"
-          width="408"
-          height="726"
+          width={500}
+          height={1000}
+          className="w-[400px]"
+          priority={true}
         />
       </div>
     </>

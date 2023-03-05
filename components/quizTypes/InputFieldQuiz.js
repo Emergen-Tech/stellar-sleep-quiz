@@ -39,6 +39,15 @@ export default function InputFieldQuiz() {
     window.rudderanalytics.track(`start sleep quiz`, props);
   }
 
+  function handleKeyDown(event) {
+    if (event.key === "Enter") {
+      // Navigate to the next page
+      if (currentAnswerVar) {
+        dispatch(moveToNextQuestion());
+      }
+    }
+  }
+
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -65,6 +74,7 @@ export default function InputFieldQuiz() {
                 onChange={(e) => handleInputAnswer(e.target.value)}
                 required
                 className=" h-[63px] placeholder:text-[20px] placeholder:font-bold placeholder:text-[#858585] rounded-[11px] text-[#282B2D] font-[700] text-[18px] px-[16px] py-[8px] border-[1px] border-[#dddddd] decoration-inherit transition-colors duration-300 ease-in-out delay-0 "
+                onKeyDown={handleKeyDown}
               />
             </form>
           </div>
