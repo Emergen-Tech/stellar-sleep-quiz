@@ -1,12 +1,14 @@
 // import ProgressBar from "./ProgressBar";
 // import { AiOutlineArrowLeft } from "react-icons/ai";
-import { moveToNextQuestion, setAnswer } from '@/reducers/QuizSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { moveToNextQuestion, setAnswer } from "@/reducers/QuizSlice";
+import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
 
 export default function MultipleChoiceQuiz() {
   const current = useSelector(
     (state) => state.quiz.questions[state.quiz.currentQuestion]
   );
+  const id = current.id;
   const question = current.question;
   const choices = current.choices;
 
@@ -30,40 +32,52 @@ export default function MultipleChoiceQuiz() {
 
   const props = {
     step: { page_name },
-    flowId: 'savvy',
+    flowId: "savvy",
   };
   if (
-    typeof window !== 'undefined' &&
+    typeof window !== "undefined" &&
     window.rudderanalytics &&
-    typeof window.rudderanalytics.track === 'function'
+    typeof window.rudderanalytics.track === "function"
   ) {
     window.rudderanalytics.track(`start sleep quiz`, props);
   }
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, [id]);
+
   return (
     <>
-      <div className='w-[350px] mx-auto'>
-        <h1 className='text-[25px] text-[#ffffff] py-4'>{question}</h1>
-        <div className='grid gap-2'>
+      <div
+        className={`w-[350px] mx-auto transition-opacity ${
+          isVisible ? "opacity-100" : "opacity-0"
+        } duration-500`}
+      >
+        <h1 className="text-[25px] text-[#ffffff] py-4">{question}</h1>
+        <div className="grid gap-2">
           {Object.entries(choices).map((entry) => (
-            <div key={entry[0]} className='mb-2'>
+            <div key={entry[0]} className="mb-2">
               <button
                 onClick={() => handleOptionClick(entry[0])}
                 className={`w-full text-center hover:scale-[1.02] transition-all h-[65px] rounded-[10px] px-7 text-[17px] text-[#ffffff]
                 ${
                   entry[0] === currentAnswerVar
-                    ? 'bg-[#769E7D]'
-                    : 'bg-[#37533C]'
-                }`}>
+                    ? "bg-[#769E7D]"
+                    : "bg-[#37533C]"
+                }`}
+              >
                 {entry[1]}
               </button>
             </div>
           ))}
         </div>
-        <div className='w-[350px]'>
+        <div className="w-[350px]">
           <button
             onClick={() => handleSubmitResponse()}
-            className='bg-[#DE8F6E] w-full h-[70px] text-white text-[20px] text-center rounded-[10px] my-[20px]'>
+            className="bg-[#DE8F6E] w-full h-[70px] text-white text-[20px] text-center rounded-[10px] my-[20px]"
+          >
             Next
           </button>
         </div>

@@ -2,11 +2,13 @@
 // import { AiOutlineArrowLeft } from "react-icons/ai";
 import { moveToNextQuestion, setAnswer } from "@/reducers/QuizSlice";
 import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
 
 export default function InputFieldQuiz() {
   const current = useSelector(
     (state) => state.quiz.questions[state.quiz.currentQuestion]
   );
+  const id = current.id;
   const question = current.question;
   const unit = current.unit;
   const dispatch = useDispatch();
@@ -24,6 +26,7 @@ export default function InputFieldQuiz() {
   const currentAnswerVar =
     current.output.answerVar.length > 0 ? current.output.answerVar[0] : "";
 
+  const placeholder = current.placeholder;
   const page_name = question.page_name;
 
   const props = {
@@ -38,19 +41,30 @@ export default function InputFieldQuiz() {
     window.rudderanalytics.track(`start sleep quiz`, props);
   }
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, [id]);
+
   return (
     <>
-      <div className="w-[350px]">
+      <div
+        className={`w-[350px] transition-opacity ${
+          isVisible ? "opacity-100" : "opacity-0"
+        } duration-500`}
+      >
         <h1 className="text-[25px] text-[#ffffff] py-4">{question}</h1>
         <div className="flex gap-2">
           <div>
             <form>
               <input
                 type="number"
+                placeholder={placeholder}
                 value={currentAnswerVar}
                 onChange={(e) => handleInputAnswer(e.target.value)}
                 required
-                className=" h-[63px] rounded-[11px] text-[#282B2D] font-[700] text-[18px] px-[16px] py-[8px] border-[1px] border-[#dddddd] decoration-inherit transition-colors duration-300 ease-in-out delay-0 "
+                className=" h-[63px] placeholder:text-[20px] placeholder:font-bold placeholder:text-[#858585] rounded-[11px] text-[#282B2D] font-[700] text-[18px] px-[16px] py-[8px] border-[1px] border-[#dddddd] decoration-inherit transition-colors duration-300 ease-in-out delay-0 "
               />
             </form>
           </div>

@@ -130,6 +130,13 @@ export default function Email() {
     window.rudderanalytics.identify(email, data);
   }
 
+  function handleKeyDown(event) {
+    if (event.key === "Enter") {
+      // Navigate to the next page
+      handleNextPage();
+      output();
+    }
+  }
   return (
     <>
       <div className="w-[400px] max-w-[100%] min-h-[100vh] max-h-auto grid justify-center p-5 px-7 bg-[#37533C] overflow-y-auto">
@@ -170,6 +177,7 @@ export default function Email() {
                     placeholder="Email"
                     required
                     className=" h-[63px] w-full rounded-[11px] text-[#282B2D] font-[700] text-[18px] px-[16px] py-[8px] border-[1px] border-[#dddddd] decoration-inherit transition-colors duration-300 ease-in-out delay-0 "
+                    onKeyDown={handleKeyDown}
                   />
                 </form>
               </div>

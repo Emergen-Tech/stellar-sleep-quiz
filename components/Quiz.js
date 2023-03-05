@@ -24,6 +24,7 @@ import AnalyzingPage from "./static/AnalyzingPage";
 import PersonalizedApproachSleep from "./static/PersonalizedApproachSleep";
 import SleepHygiene from "./static/SleepHygiene";
 import SleepingPillsAndStellarSleep from "./static/SleepingPillsAndStellarSleepResearch";
+import { useEffect, useState } from "react";
 
 export default function Quiz() {
   const dispatch = useDispatch();
@@ -54,9 +55,17 @@ export default function Quiz() {
     (questionsCompleted / questionsCount) * 100
   );
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   return (
     <div
-      className={`bg-transparent ${
+      className={`bg-transparent transition-opacity ${
+        isVisible ? "opacity-100" : "opacity-0"
+      } duration-500 ${
         current?.inputType === "multipleChoice" ||
         current?.inputType === "CheckBox" ||
         current?.inputType === "InputField"
@@ -70,7 +79,7 @@ export default function Quiz() {
         ""
       ) : (
         <div className="grid">
-          <div className="flex gap-8 pr-16 justify-center py-[20px]">
+          <div className="flex gap-5 pr-12 justify-start py-[20px]">
             {currentQuestion > 0 && (
               <button
                 type="button"
@@ -80,7 +89,7 @@ export default function Quiz() {
                 <AiOutlineArrowLeft />
               </button>
             )}
-            <div className="text-[15px] text-[#FFFFFF]">
+            <div className="text-[15px] font-bold text-[#FFFFFF]">
               📋 Understanding your sleep profile
             </div>
           </div>

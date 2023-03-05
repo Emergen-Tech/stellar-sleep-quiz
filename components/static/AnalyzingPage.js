@@ -9,11 +9,14 @@ import {
   moveTopreviousQuestion,
 } from "@/reducers/QuizSlice";
 import { useDispatch } from "react-redux";
+import Lottie from "react-lottie";
+import animationData from "@/components/lotties/lottieLoader.json";
+import { useEffect, useState } from "react";
+import { redirect } from "next/dist/server/api-utils";
 
 export default function AnalyzingPage() {
+  // const [animationCompleted, setAnimationCompleted] = useState(false);
   const dispatch = useDispatch();
-  // const { questions, currentQuestion } = useSelector((state) => state.quiz);
-  // const current = useSelector(selectQuestion);
 
   function handlePreviousPage() {
     dispatch(moveTopreviousQuestion());
@@ -22,6 +25,34 @@ export default function AnalyzingPage() {
   function handleNextPage() {
     dispatch(moveToNextQuestion());
   }
+
+  const defaultOptions = {
+    loop: false,
+    // autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+  useEffect(() => {
+    const redirectTimer = window.setTimeout(() => {
+      handleNextPage();
+    }, 11000);
+
+    // Clear the timer when the component unmounts or changes
+    return () => {
+      clearTimeout(redirectTimer);
+    };
+  }, []);
+
+  // function redirect() {
+  //   window.setTimeout(function () {
+  //     handleNextPage();
+  //   }, 5000);
+  // }
+
+  // console.log(animationCompleted);
 
   return (
     <>
@@ -59,13 +90,13 @@ export default function AnalyzingPage() {
             </div>
           </div>
 
-          <div className="w-full h-[100px]">
-            <button
-              onClick={() => handleNextPage()}
-              className="bg-[#DE8F6E] w-full h-[70px] text-white text-[20px] text-center rounded-[10px] my-[20px]"
-            >
-              Next
-            </button>
+          <div>
+            <Lottie
+              options={defaultOptions}
+              height={320}
+              width={320}
+              onComplete={() => handleNextPage()}
+            />
           </div>
         </div>
       </div>
