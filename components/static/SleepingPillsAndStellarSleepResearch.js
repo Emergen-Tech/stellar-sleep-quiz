@@ -46,7 +46,11 @@ export default function SleepingPillsAndStellarSleepResearch() {
 
   useEffect(() => {
     setIsVisible(true);
-  });
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
 
   return (
     <>

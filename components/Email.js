@@ -177,7 +177,9 @@ export default function Email() {
                     placeholder="Email"
                     required
                     className=" h-[63px] w-full rounded-[11px] text-[#282B2D] font-[700] text-[18px] px-[16px] py-[8px] border-[1px] border-[#dddddd] decoration-inherit transition-colors duration-300 ease-in-out delay-0 "
-                    onKeyDown={handleKeyDown}
+                    onKeyDown={(e) =>
+                      e.key === "Enter" && handleSubmitResponse() & output()
+                    }
                   />
                 </form>
               </div>

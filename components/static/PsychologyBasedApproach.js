@@ -49,10 +49,14 @@ export default function PsychologyBasedApproach() {
 
   useEffect(() => {
     setIsVisible(true);
-  });
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
   return (
     <>
-      <div className="w-[400px] max-w-[100%] min-h-[100vh] max-h-auto grid justify-center p-5 px-7 bg-[#37533C] overflow-y-auto">
+      <div className="w-[400px] max-w-[100%] min-h-[100vh] max-h-auto grid justify-center p-5 px-7 bg-[#37533C]">
         <div
           className={`w-full grid gap-4 transition-all ${
             isVisible

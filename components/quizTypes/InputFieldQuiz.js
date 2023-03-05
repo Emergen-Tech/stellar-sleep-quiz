@@ -49,14 +49,17 @@ export default function InputFieldQuiz() {
   }
 
   const [isVisible, setIsVisible] = useState(false);
+  const [counter, setCounter] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
-  }, [id]);
+    setCounter((prevCounter) => prevCounter + 1);
+  }, [current, counter]);
 
   return (
     <>
       <div
+        key={counter}
         className={`w-[350px] transition-all ${
           isVisible
             ? "opacity-100 transform translate-y-0"
@@ -66,7 +69,7 @@ export default function InputFieldQuiz() {
         <h1 className="text-[25px] text-[#ffffff] py-4">{question}</h1>
         <div className="flex gap-2">
           <div>
-            <form>
+            <div>
               <input
                 type="number"
                 placeholder={placeholder}
@@ -74,9 +77,9 @@ export default function InputFieldQuiz() {
                 onChange={(e) => handleInputAnswer(e.target.value)}
                 required
                 className=" h-[63px] placeholder:text-[20px] placeholder:font-bold placeholder:text-[#858585] rounded-[11px] text-[#282B2D] font-[700] text-[18px] px-[16px] py-[8px] border-[1px] border-[#dddddd] decoration-inherit transition-colors duration-300 ease-in-out delay-0 "
-                onKeyDown={handleKeyDown}
+                onKeyDown={(e) => e.key === "Enter" && handleSubmitResponse()}
               />
-            </form>
+            </div>
           </div>
           <div className="text-[17px] text-[#ffffff] flex items-center">
             {unit}

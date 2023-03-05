@@ -1,5 +1,3 @@
-// import ProgressBar from "./ProgressBar";
-// import { AiOutlineArrowLeft } from "react-icons/ai";
 import { moveToNextQuestion, setAnswer } from "@/reducers/QuizSlice";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
@@ -43,14 +41,16 @@ export default function MultipleChoiceQuiz() {
   }
 
   const [isVisible, setIsVisible] = useState(false);
+  const [counter, setCounter] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
-  }, [id]);
+  }, [current]);
 
   return (
     <>
       <div
+        key={current}
         className={`w-[350px] transition-all ${
           isVisible
             ? "opacity-100 transform translate-y-0"

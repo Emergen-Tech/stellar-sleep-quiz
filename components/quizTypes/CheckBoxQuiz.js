@@ -13,13 +13,13 @@ export default function CheckBoxQuiz() {
   const choices = current.choices;
   const currentAnswerVars = current.output.answerVar;
 
-  const usecases = {
-    "none + option others": "set selection",
-    "others + option none": "set selection",
-    "empty + option none": "set/append selection",
-    "empty + option others": "set/append selection",
-    "others + option others2": "append selection",
-  };
+  // const usecases = {
+  //   "none + option others": "set selection",
+  //   "others + option none": "set selection",
+  //   "empty + option none": "set/append selection",
+  //   "empty + option others": "set/append selection",
+  //   "others + option others2": "append selection",
+  // };
 
   const handleOptionSelect = (option) => {
     // 'none + option none': 'filter',
@@ -56,14 +56,17 @@ export default function CheckBoxQuiz() {
     window.rudderanalytics.track(`start sleep quiz`, props);
   }
   const [isVisible, setIsVisible] = useState(false);
+  const [counter, setCounter] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
-  }, [id]);
+    setCounter((prevCounter) => prevCounter + 1);
+  }, [current, counter]);
 
   return (
     <>
       <div
+        key={counter}
         className={`w-[350px] transition-all ${
           isVisible
             ? "opacity-100 transform translate-y-0"
