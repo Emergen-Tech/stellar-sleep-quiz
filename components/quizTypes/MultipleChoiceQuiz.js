@@ -50,7 +50,7 @@ export default function MultipleChoiceQuiz() {
   return (
     <>
       <div
-        key={current}
+        // key={current}
         className={`w-[350px] transition-all ${
           isVisible
             ? "opacity-100 transform translate-y-0"
