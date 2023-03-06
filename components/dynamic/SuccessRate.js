@@ -80,6 +80,7 @@ export default function SuccessRate() {
             </div>
             <div className='flex justify-center'>
               <Image
+                priority={true}
                 src={logo}
                 alt='logo'
                 width='150'
@@ -111,6 +112,7 @@ export default function SuccessRate() {
                 </div>
                 <div>
                   <Image
+                    priority={true}
                     src={SuccessRateImage}
                     width={200}
                     height={200}
@@ -143,6 +145,7 @@ export default function SuccessRate() {
                 </div>
                 <div>
                   <Image
+                    priority={true}
                     src={SuccessRateImage}
                     width={200}
                     height={200}

@@ -35,6 +35,7 @@ export default function PartnerAccess() {
           <div className='flex gap-4'>
             <div className='flex w-[70px]  items-center justify-center'>
               <Image
+                priority={true}
                 src={TrialSleepLogo}
                 alt='trial sleep logo'
                 width={200}
@@ -48,6 +49,7 @@ export default function PartnerAccess() {
                   <div key={index} className='flex gap-2 justify-start'>
                     <div className='flex items-center p-0'>
                       <Image
+                        priority={true}
                         src={bullet}
                         alt='bullet point'
                         width={200}
@@ -74,6 +76,7 @@ export default function PartnerAccess() {
                   }
                   target={'_blank'}>
                   <Image
+                    priority={true}
                     src={AppStoreImage}
                     alt='appstore image'
                     width={200}
@@ -87,6 +90,7 @@ export default function PartnerAccess() {
                   }
                   target={'_blank'}>
                   <Image
+                    priority={true}
                     src={GooglePlayImage}
                     alt='Google play image'
                     width={200}
@@ -114,6 +118,7 @@ export default function PartnerAccess() {
           <div className='flex items-center justify-center'>
             <div>
               <Image
+                priority={true}
                 src={bullet}
                 width={100}
                 height={100}
@@ -126,6 +131,7 @@ export default function PartnerAccess() {
             </div>
             <div>
               <Image
+                priority={true}
                 src={bullet}
                 width={100}
                 height={100}

@@ -64,6 +64,7 @@ export default function BehavioraltherapyInfo() {
             </div>
             <div className='  flex justify-center'>
               <Image
+                priority={true}
                 src={logo}
                 alt='logo'
                 width='150'
@@ -83,6 +84,7 @@ export default function BehavioraltherapyInfo() {
             <div className='flex gap-3'>
               <div className='w-[140px]'>
                 <Image
+                  priority={true}
                   src={aasm}
                   alt='aasm'
                   width={200}
@@ -99,6 +101,7 @@ export default function BehavioraltherapyInfo() {
             <div className='flex gap-3'>
               <div>
                 <Image
+                  priority={true}
                   src={acp}
                   alt='acp'
                   width={200}

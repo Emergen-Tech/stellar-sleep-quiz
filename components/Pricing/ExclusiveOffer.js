@@ -28,6 +28,7 @@ export default function ExclusiveOffer() {
           <div className='flex gap-4'>
             <div className='flex w-[70px]  items-center justify-center'>
               <Image
+                priority={true}
                 src={TrialSleepLogo}
                 alt='trial sleep logo'
                 width={200}
@@ -41,6 +42,7 @@ export default function ExclusiveOffer() {
                   <div key={index} className='flex gap-2 justify-start'>
                     <div className='flex items-center p-0'>
                       <Image
+                        priority={true}
                         src={bullet}
                         alt='bullet point'
                         width={200}
@@ -130,6 +132,7 @@ export default function ExclusiveOffer() {
 
           <div className='flex justify-center items-center'>
             <Image
+              priority={true}
               src={SatisfactionGuaranteeImage}
               alt='satisfaction guarantee'
               width={200}

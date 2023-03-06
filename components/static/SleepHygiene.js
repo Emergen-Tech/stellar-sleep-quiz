@@ -63,6 +63,7 @@ export default function SleepHygiene() {
             </div>
             <div className='flex justify-center'>
               <Image
+                priority={true}
                 src={logo}
                 alt='logo'
                 width='150'
@@ -88,6 +89,7 @@ export default function SleepHygiene() {
               <div className='flex gap-3 w-[100%]'>
                 <div className='w-[140px]'>
                   <Image
+                    priority={true}
                     src={aasm}
                     alt='aasm'
                     width={200}

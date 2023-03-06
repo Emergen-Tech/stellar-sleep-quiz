@@ -63,6 +63,7 @@ export default function PersonalizedApproachSleep() {
             </div>
             <div className='flex justify-center'>
               <Image
+                priority={true}
                 src={logo}
                 alt='logo'
                 width='150'
@@ -84,6 +85,7 @@ export default function PersonalizedApproachSleep() {
               </div>
               <div>
                 <Image
+                  priority={true}
                   src={personalizedApproachSleepImage}
                   alt='personalized Approach Sleep Image'
                   width='150'

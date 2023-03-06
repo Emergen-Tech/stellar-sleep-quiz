@@ -89,6 +89,7 @@ export default function AverageSleepResult() {
             </div>
             <div className='flex justify-center'>
               <Image
+                priority={true}
                 src={logo}
                 alt='logo'
                 width='150'

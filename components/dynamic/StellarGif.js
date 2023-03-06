@@ -1,23 +1,23 @@
-import { moveToNextQuestion } from "@/reducers/QuizSlice";
-import { useDispatch, useSelector } from "react-redux";
-import Image from "next/image";
+import { moveToNextQuestion } from '@/reducers/QuizSlice';
+import Image from 'next/image';
+import { useDispatch, useSelector } from 'react-redux';
 
-import first_gif from "@/images/Giffs/1.gif";
-import second_gif from "@/images/Giffs/2.gif";
-import third_gif from "@/images/Giffs/3.gif";
-import fourth_gif from "@/images/Giffs/4.gif";
-import fifth_gif from "@/images/Giffs/5.gif";
-import sixth_gif from "@/images/Giffs/6.gif";
-import seventh_gif from "@/images/Giffs/7.gif";
-import eigth_gif from "@/images/Giffs/8.gif";
+import first_gif from '@/images/Giffs/1.gif';
+import second_gif from '@/images/Giffs/2.gif';
+import third_gif from '@/images/Giffs/3.gif';
+import fourth_gif from '@/images/Giffs/4.gif';
+import fifth_gif from '@/images/Giffs/5.gif';
+import sixth_gif from '@/images/Giffs/6.gif';
+import seventh_gif from '@/images/Giffs/7.gif';
+import eigth_gif from '@/images/Giffs/8.gif';
 
 export default function StellarGif() {
   const dispatch = useDispatch();
   const allQuestions = useSelector((state) => state.quiz.questions);
   const questionVars = [
-    "consequences",
-    "stressed_thinking_to_go_bed",
-    "mind_race_in_bed",
+    'consequences',
+    'stressed_thinking_to_go_bed',
+    'mind_race_in_bed',
   ];
   const answerVars = questionVars.map(
     (questionVar) =>
@@ -39,29 +39,29 @@ export default function StellarGif() {
   ];
 
   const getGif = () => {
-    if (answerVars[0] != "none") {
-      if (answerVars[1] != "no") {
-        if (answerVars[2] != "no") {
+    if (answerVars[0] != 'none') {
+      if (answerVars[1] != 'no') {
+        if (answerVars[2] != 'no') {
           return gifs[0];
         } else {
           return gifs[1];
         }
       } else {
-        if (answerVars[2] != "no") {
+        if (answerVars[2] != 'no') {
           return gifs[2];
         } else {
           return gifs[3];
         }
       }
     } else {
-      if (answerVars[1] != "no") {
-        if (answerVars[2] != "no") {
+      if (answerVars[1] != 'no') {
+        if (answerVars[2] != 'no') {
           return gifs[4];
         } else {
           return gifs[5];
         }
       } else {
-        if (answerVars[2] != "no") {
+        if (answerVars[2] != 'no') {
           return gifs[6];
         } else {
           return gifs[7];
@@ -82,14 +82,14 @@ export default function StellarGif() {
 
   return (
     <>
-      <div className="w-[400px] bg-[#000000] h-[100vh] flex justify-center">
+      <div className='w-[400px] bg-[#000000] h-[100vh] flex justify-center'>
         <Image
           onLoad={() => redirect()}
           src={getGif()}
-          alt="gif"
+          alt='gif'
           width={500}
           height={1000}
-          className="w-[400px]"
+          className='w-[400px]'
           priority={true}
         />
       </div>

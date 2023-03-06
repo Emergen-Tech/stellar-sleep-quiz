@@ -15,7 +15,7 @@ const initialState = {
   utm_term: null,
   gclid: null,
   promo: null,
-  email: null,
+  email: undefined,
   isVisible: true,
 };
 
@@ -76,6 +76,9 @@ export const quizSlice = createSlice({
       state.email = action.payload.prefilled_email || state.email;
       quizSlice.caseReducers.updateLocalStorage(state);
     },
+    updateEmail: (state, action) => {
+      state.email = action.payload;
+    },
     updateLocalStorage: (state) => {
       localStorage.setItem('quiz', JSON.stringify(state));
     },
@@ -100,6 +103,7 @@ export const {
   setAnswer,
   setUrlParams,
   setIsVisible,
+  updateEmail,
 } = quizSlice.actions;
 
 export default quizSlice.reducer;

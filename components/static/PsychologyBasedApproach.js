@@ -62,6 +62,7 @@ export default function PsychologyBasedApproach() {
             </div>
             <div className='flex justify-center'>
               <Image
+                priority={true}
                 src={logo}
                 alt='logo'
                 width='150'
@@ -72,6 +73,7 @@ export default function PsychologyBasedApproach() {
           </div>
           <div className='flex justify-center'>
             <Image
+              priority={true}
               src={locationSVG}
               alt='location point'
               width={35}

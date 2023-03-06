@@ -64,6 +64,7 @@ export default function SleepingPillsAndStellarSleepResearch() {
             </div>
             <div className='  flex justify-center'>
               <Image
+                priority={true}
                 src={logo}
                 alt='logo'
                 width='150'
@@ -87,6 +88,7 @@ export default function SleepingPillsAndStellarSleepResearch() {
               <div className='grid gap-3 p-2'>
                 <div className='flex justify-center'>
                   <Image
+                    priority={true}
                     src={JAMA}
                     alt='JAMA'
                     width={200}

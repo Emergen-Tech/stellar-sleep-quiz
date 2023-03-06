@@ -70,6 +70,7 @@ export default function TrialPricing() {
             </div>
             <div className=''>
               <Image
+                priority={true}
                 src={TrialPricingArrow}
                 alt='Trial Pricing Arrow'
                 width={35}
