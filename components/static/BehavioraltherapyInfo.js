@@ -1,16 +1,14 @@
-import logo from "@/images/logo.png";
-import Image from "next/image";
-import aasm from "@/images/aasm.png";
-import acp from "@/images/acp.png";
-import { AiOutlineArrowLeft } from "react-icons/ai";
-import { useSelector, useDispatch } from "react-redux";
+import aasm from '@/images/aasm.png';
+import acp from '@/images/acp.png';
+import logo from '@/images/logo.png';
 import {
   moveToNextQuestion,
   moveTopreviousQuestion,
-  // submitAnswer,
-  // selectQuestion,
-} from "@/reducers/QuizSlice";
-import { useState, useEffect } from "react";
+} from '@/reducers/QuizSlice';
+import Image from 'next/image';
+import { useEffect } from 'react';
+import { AiOutlineArrowLeft } from 'react-icons/ai';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function BehavioraltherapyInfo() {
   const dispatch = useDispatch();
@@ -34,102 +32,91 @@ export default function BehavioraltherapyInfo() {
 
   const props = {
     step: { page_name },
-    flowId: "savvy",
+    flowId: 'savvy',
   };
   if (
-    typeof window !== "undefined" &&
+    typeof window !== 'undefined' &&
     window.rudderanalytics &&
-    typeof window.rudderanalytics.track === "function"
+    typeof window.rudderanalytics.track === 'function'
   ) {
     window.rudderanalytics.track(`start sleep quiz`, props);
   }
 
-  const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
-    setIsVisible(true);
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     };
   }, []);
 
   return (
     <>
-      <div className="w-[400px] max-w-[100%] min-h-[100vh] max-h-[100%] grid justify-center p-5 px-7 bg-[#37533C]">
-        <div
-          className={`w-full grid gap-4 transition-all ${
-            isVisible
-              ? "opacity-100 transform translate-y-0"
-              : "opacity-0 transform translate-y-10"
-          } duration-500`}
-        >
-          <div className="flex ">
-            <div className="w-[25%]">
+      <div className='w-[400px] max-w-[100%] min-h-[100vh] max-h-[100%] grid justify-center p-5 px-7 bg-[#37533C]'>
+        <div className={`w-full grid gap-4`}>
+          <div className='flex '>
+            <div className='w-[25%]'>
               <button
                 // type="button"
                 onClick={() => handlePreviousPage()}
-                className=" text-white text-[30px]"
-              >
+                className=' text-white text-[30px]'>
                 <AiOutlineArrowLeft />
               </button>
             </div>
-            <div className="  flex justify-center">
+            <div className='  flex justify-center'>
               <Image
                 src={logo}
-                alt="logo"
-                width="150"
-                height="120"
-                className="w-[160px] h-[32px]"
+                alt='logo'
+                width='150'
+                height='120'
+                className='w-[160px] h-[32px]'
               />
             </div>
           </div>
-          <div className="font-bold text-[20px] text-[#ffffff]">
+          <div className='font-bold text-[20px] text-[#ffffff]'>
             Stellar Sleep can help you fall asleep faster.
           </div>
-          <div className="text-[17px] text-[#ffffff]">
+          <div className='text-[17px] text-[#ffffff]'>
             Our behavioral therapy based curriculum is supported by clinical
             evidence and is the gold standard for insomnia treatment.
           </div>
-          <div className="grid gap-5 w-[350px]">
-            <div className="flex gap-3">
-              <div className="w-[140px]">
+          <div className='grid gap-5 w-[350px]'>
+            <div className='flex gap-3'>
+              <div className='w-[140px]'>
                 <Image
                   src={aasm}
-                  alt="aasm"
+                  alt='aasm'
                   width={200}
                   height={200}
-                  className="w-[140px] object-contain"
+                  className='w-[140px] object-contain'
                 />
               </div>
-              <div className="text-[14px] text-[#ffffff] w-[190px] italic">
+              <div className='text-[14px] text-[#ffffff] w-[190px] italic'>
                 "The guideline includes one strong recommendation — which is one
                 that clinicians should follow under most circumstances — for the
                 use of [behavioral therapy]"
               </div>
             </div>
-            <div className="flex gap-3">
+            <div className='flex gap-3'>
               <div>
                 <Image
                   src={acp}
-                  alt="acp"
+                  alt='acp'
                   width={200}
                   height={200}
-                  className="w-[140px] object-contain"
+                  className='w-[140px] object-contain'
                 />
               </div>
-              <div className="text-[14px] text-[#ffffff] w-[190px] italic">
+              <div className='text-[14px] text-[#ffffff] w-[190px] italic'>
                 “[Behavioral therapy] should be the first-line treatment for
                 adults with chronic insomnia”
               </div>
             </div>
           </div>
 
-          <div className="w-full">
+          <div className='w-full'>
             <button
               onClick={() => handleNextPage()}
-              className="bg-[#DE8F6E] w-full h-[70px] text-white text-[20px] text-center rounded-[10px] my-[20px]"
-            >
+              className='bg-[#DE8F6E] w-full h-[70px] text-white text-[20px] text-center rounded-[10px] my-[20px]'>
               Next
             </button>
           </div>
