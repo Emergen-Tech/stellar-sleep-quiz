@@ -6,6 +6,7 @@ import {
   moveTopreviousQuestion,
   setAnswer,
 } from '@/reducers/QuizSlice';
+import { useEffect } from 'react';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 // import logo from "@/images/logo.png";
