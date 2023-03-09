@@ -94,15 +94,15 @@ export default function StellarGif() {
         <link rel="preload" href="../../images/Giffs/8.gif" as="image" />
       </Head>
       <div className="w-[400px] bg-[#000000] h-[100vh] flex justify-center overflow-y-auto">
-        <Image
+        <img
           onLoad={() => redirect()}
           src={getGif()}
           alt="gif"
-          width={500}
-          height={1000}
-          className="w-[400px]"
-          priority={true}
-          preload={true}
+          // width={500}
+          // height={1000}
+          className="w-[400px] h-full"
+          // priority={true}
+          // preload={true}
         />
       </div>
     </>
