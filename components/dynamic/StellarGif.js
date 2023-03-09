@@ -84,24 +84,24 @@ export default function StellarGif() {
   return (
     <>
       <Head>
-        <link rel="preload" href="../../images/Giffs/1.gif" as="image" />
-        <link rel="preload" href="../../images/Giffs/2.gif" as="image" />
-        <link rel="preload" href="../../images/Giffs/3.gif" as="image" />
-        <link rel="preload" href="../../images/Giffs/4.gif" as="image" />
-        <link rel="preload" href="../../images/Giffs/5.gif" as="image" />
-        <link rel="preload" href="../../images/Giffs/6.gif" as="image" />
-        <link rel="preload" href="../../images/Giffs/7.gif" as="image" />
-        <link rel="preload" href="../../images/Giffs/8.gif" as="image" />
+        <link rel="preload" href="@/images/Giffs/1.gif" as="image" />
+        <link rel="preload" href="@/images/Giffs/2.gif" as="image" />
+        <link rel="preload" href="@/images/Giffs/3.gif" as="image" />
+        <link rel="preload" href="@/images/Giffs/4.gif" as="image" />
+        <link rel="preload" href="@/images/Giffs/5.gif" as="image" />
+        <link rel="preload" href="@/images/Giffs/6.gif" as="image" />
+        <link rel="preload" href="@/images/Giffs/7.gif" as="image" />
+        <link rel="preload" href="@/images/Giffs/8.gif" as="image" />
       </Head>
       <div className="w-[400px] bg-[#000000] h-[100vh] flex justify-center overflow-y-auto">
-        <img
+        <Image
           onLoad={() => redirect()}
           src={getGif()}
           alt="gif"
-          // width={500}
-          // height={1000}
+          width={500}
+          height={1000}
           className="w-[400px] h-full"
-          // priority={true}
+          priority={true}
           // preload={true}
         />
       </div>

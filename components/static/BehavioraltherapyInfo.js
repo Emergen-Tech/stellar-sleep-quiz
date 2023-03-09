@@ -55,7 +55,7 @@ export default function BehavioraltherapyInfo() {
 
   return (
     <>
-      <div className="w-[400px] max-w-[100%] min-h-[100vh] max-h-[100%] grid justify-center p-5 px-7 bg-[#37533C] overflow-y-auto">
+      <div className="w-[400px] max-w-[100%] min-h-[100vh] max-h-[100%] grid justify-center p-5 px-7 bg-[#37533C] overflow-x-hidden overflow-y-auto">
         <div className={`w-full grid gap-4`}>
           <div className="flex ">
             <div className="w-[25%]">
