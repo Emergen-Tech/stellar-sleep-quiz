@@ -52,12 +52,12 @@ export default function AnalyzingPage() {
 
   // console.log(animationCompleted);
 
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, []);
+  // useEffect(() => {
+  //   document.body.style.overflow = "hidden";
+  //   return () => {
+  //     document.body.style.overflow = "auto";
+  //   };
+  // }, []);
 
   return (
     <>
@@ -102,6 +102,7 @@ export default function AnalyzingPage() {
               options={defaultOptions}
               height={320}
               width={320}
+              isClickToPauseDisabled={true}
               onComplete={() => handleNextPage()}
             />
           </div>
