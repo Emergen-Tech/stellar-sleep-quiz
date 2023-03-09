@@ -6,7 +6,7 @@ import {
   moveTopreviousQuestion,
 } from "@/reducers/QuizSlice";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -26,6 +26,7 @@ export default function BehavioraltherapyInfo() {
   const current = useSelector(
     (state) => state.quiz.questions[state.quiz.currentQuestion]
   );
+  const { isVisible } = useSelector((state) => state.quiz);
   const question = current.question;
 
   const page_name = question.page_name;
@@ -42,16 +43,19 @@ export default function BehavioraltherapyInfo() {
     window.rudderanalytics.track(`start sleep quiz`, props);
   }
 
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, []);
+  // const [data, setdata] = useState();
+
+  // useEffect(() => {
+  //   setdata("hello");
+  //   document.body.style.overflow = "hidden";
+  //   return () => {
+  //     document.body.style.overflow = "auto";
+  //   };
+  // }, []);
 
   return (
     <>
-      <div className="w-[400px] max-w-[100%] min-h-[100vh] max-h-[100%] grid justify-center p-5 px-7 bg-[#37533C]">
+      <div className="w-[400px] max-w-[100%] min-h-[100vh] max-h-[100%] grid justify-center p-5 px-7 bg-[#37533C] overflow-y-auto">
         <div className={`w-full grid gap-4`}>
           <div className="flex ">
             <div className="w-[25%]">

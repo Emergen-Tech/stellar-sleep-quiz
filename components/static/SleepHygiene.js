@@ -5,7 +5,7 @@ import {
   moveTopreviousQuestion,
 } from "@/reducers/QuizSlice";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -41,12 +41,15 @@ export default function SleepHygiene() {
     window.rudderanalytics.track(`start sleep quiz`, props);
   }
 
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, []);
+  // const [data, setdata] = useState();
+
+  // useEffect(() => {
+  //   setdata("hello");
+  //   document.body.style.overflow = "hidden";
+  //   return () => {
+  //     document.body.style.overflow = "auto";
+  //   };
+  // }, []);
 
   return (
     <>

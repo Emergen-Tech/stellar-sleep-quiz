@@ -9,7 +9,7 @@ import {
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 // import logo from "@/images/logo.png";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function InsomniaSeverityIndex() {
   const questions = useSelector((state) => state.quiz.questions);
@@ -49,16 +49,19 @@ export default function InsomniaSeverityIndex() {
     dispatch(moveToNextQuestion());
   }
 
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, []);
+  // const [data, setdata] = useState();
+
+  // useEffect(() => {
+  //   setdata("hello");
+  //   document.body.style.overflow = "hidden";
+  //   return () => {
+  //     document.body.style.overflow = "auto";
+  //   };
+  // }, []);
 
   return (
     <>
-      <div className="w-[400px] max-w-[100%] min-h-[100vh] max-h-[100%] grid justify-center p-5 px-7 bg-[#37533C]">
+      <div className="w-[400px] max-w-[100%] min-h-[100vh] max-h-[100%] grid justify-center p-5 px-7 bg-[#37533C] overflow-y-auto">
         <div className={`w-full grid gap-4`}>
           <div className="flex ">
             <div className="w-[25%]">

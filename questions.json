@@ -286,6 +286,7 @@
     "inputType": "InputField",
     "unit": "minutes",
     "typeStatic": "",
+    "placeholder":"eg: 10",
     "typeDynamic": "",
     "question": "How long does it take for you to fall asleep?",
     "choices": {},

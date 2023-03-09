@@ -1,6 +1,7 @@
 import { moveToNextQuestion } from "@/reducers/QuizSlice";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
+import Head from "next/head";
 
 import first_gif from "@/images/Giffs/1.gif";
 import second_gif from "@/images/Giffs/2.gif";
@@ -82,7 +83,17 @@ export default function StellarGif() {
 
   return (
     <>
-      <div className="w-[400px] bg-[#000000] h-[100vh] flex justify-center">
+      <Head>
+        <link rel="preload" href="../../images/Giffs/1.gif" as="image" />
+        <link rel="preload" href="../../images/Giffs/2.gif" as="image" />
+        <link rel="preload" href="../../images/Giffs/3.gif" as="image" />
+        <link rel="preload" href="../../images/Giffs/4.gif" as="image" />
+        <link rel="preload" href="../../images/Giffs/5.gif" as="image" />
+        <link rel="preload" href="../../images/Giffs/6.gif" as="image" />
+        <link rel="preload" href="../../images/Giffs/7.gif" as="image" />
+        <link rel="preload" href="../../images/Giffs/8.gif" as="image" />
+      </Head>
+      <div className="w-[400px] bg-[#000000] h-[100vh] flex justify-center overflow-y-auto">
         <Image
           onLoad={() => redirect()}
           src={getGif()}
